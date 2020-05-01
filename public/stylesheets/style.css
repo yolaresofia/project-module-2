@@ -1,0 +1,692 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Giga&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  color: #000000;
+}
+
+/*navbar FALTA MOBILE FIRST*/
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* transform: rotate(180deg); */
+  height: 60px;
+  margin: 0 auto;
+  padding-right: 30px;
+  z-index: 3 !important;
+}
+
+ul li a {
+  /* transform: rotate(180deg); */
+  font-family: Fira Code;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 15px;
+  background-color: transparent;
+  text-align: center;
+  width: 15%;
+  transition: width 0.8s ease 0.3s, font-size 0.8s ease 0.3s;
+}
+
+li {
+  z-index: 3;
+  font-size: 0.7em;
+}
+
+
+ul li a:hover {
+  border-bottom: 2px solid black;
+}
+
+
+.profile {
+  color: #f93b20;
+}
+
+.profile:hover {
+  border-bottom: 2px solid #f93b20;
+}
+
+/* sliders */
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 40px;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1.6px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #000000;
+  border-radius: 1.3px;
+  border: 0.2px solid rgba(1, 1, 1, 0.9);
+}
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0.9px 0.9px 1px rgba(0, 0, 0, 0), 0px 0px 0.9px rgba(13, 13, 13, 0);
+  border: 0.4px solid #000000;
+  height: 18px;
+  width: 18px;
+  border-radius: 50px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -8.4px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #0d0d0d;
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 1.6px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #000000;
+  border-radius: 1.3px;
+  border: 0.2px solid rgba(1, 1, 1, 0.9);
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0.9px 0.9px 1px rgba(0, 0, 0, 0), 0px 0px 0.9px rgba(13, 13, 13, 0);
+  border: 0.4px solid #000000;
+  height: 18px;
+  width: 18px;
+  border-radius: 50px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 1.6px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+  background: #000000;
+  border: 0.2px solid rgba(1, 1, 1, 0.9);
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type=range]::-ms-fill-upper {
+  background: #000000;
+  border: 0.2px solid rgba(1, 1, 1, 0.9);
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+
+input[type=range]::-ms-thumb {
+  box-shadow: 0.9px 0.9px 1px rgba(0, 0, 0, 0), 0px 0px 0.9px rgba(13, 13, 13, 0);
+  border: 0.4px solid #000000;
+  height: 18px;
+  width: 18px;
+  border-radius: 50px;
+  background: #ffffff;
+  cursor: pointer;
+  height: 1.6px;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #000000;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #0d0d0d;
+}
+
+
+/* home */
+
+.threeDp {
+  font-weight: 100;
+  font-family: Fira Code;
+  width: 55%;
+  position: absolute;
+  line-height: 1.7em;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  top: calc(100vh - 200px);
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
+}
+
+
+#canvas3d {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/*main page*/
+
+.main-page {
+  display: flex;
+  margin-top: 20px;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 35px;
+}
+
+.name-use {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10%;
+  margin-left: 4%;
+}
+
+.title {
+  font-family: Manrope;
+  color: black;
+  font-size: 5.5em;
+  line-height: 1.1em;
+}
+
+.orangeCircle {
+  position: absolute;
+  transform: translate(-50%, 10%);
+  z-index: -1;
+  height: 50%;
+}
+
+.circlepink {
+  position: absolute;
+  transform: translate(30%, 10%);
+  z-index: -1;
+  height: 50%;
+}
+
+.circleVlt {
+  position: absolute;
+  transform: translate(90%, 50%);
+  z-index: -1;
+  height: 50%;
+}
+
+.roseBg {
+  position: absolute;
+  transform: translate(20%, -10%);
+  z-index: -1;
+  height: 60%;
+}
+
+
+.sketch-button {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+  margin-left: 10%;
+}
+
+.saveButton {
+  margin-top: 40px;
+  color: black;
+  width: 100px;
+  font-family: Fira Code;
+}
+
+#knobs {
+  width: 10%;
+}
+
+/*gallery*/
+
+.container-title-p-connect {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: row;
+}
+
+.text-gallery {
+  margin-top: 70%;
+  margin-left: 15%;
+  font-family: Manrope;
+  font-weight: 400;
+  font-size: 1.1em;
+  width: 80%;
+  text-align: right;
+}
+
+.square {
+  height: 500px;
+  width: 400px;
+  border: 3px solid black;
+  margin-top: 7%;
+  margin-left: -10%;
+}
+
+.title-archive {
+  color: black;
+  margin-top: 17%;
+  margin-left: 15%;
+  font-size: 6em;
+  font-family: Manrope;
+  transition: 1s;
+}
+
+.orangeBackground {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  height: 100vh;
+}
+
+.imagesInGallery {
+  width: 290px;
+  margin: 10px;
+  padding: 25px 25px 65px;
+  transition: 2s;
+  box-shadow: 1px 1px 10px rgb(240, 235, 227);
+}
+
+.imagesInGallery:hover {
+  width: 310px;
+  background: rgb(240, 235, 235);
+}
+
+.title-archive:hover {
+  color: purple;
+}
+
+.container-archive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+a:link {
+  text-decoration: none;
+
+}
+
+
+li {
+  list-style-type: none;
+
+}
+
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 10000%;
+  top: 0;
+  z-index: 10;
+  left: 0;
+  transform: scale(0);
+  transform: skewX(-45);
+  transform-origin: left;
+  background: linear-gradient(302deg, #313f3c, #0d1815, #938686, #38435e);
+  background-size: 800% 800%;
+
+  -webkit-animation: grad 3s ease infinite;
+  -moz-animation: grad 3s ease infinite;
+  -o-animation: grad 3s ease infinite;
+  animation: grad 3s ease infinite;
+}
+
+@-webkit-keyframes grad {
+  0% {
+    background-position: 0% 5%
+  }
+
+  50% {
+    background-position: 100% 96%
+  }
+
+  100% {
+    background-position: 0% 5%
+  }
+}
+
+@-moz-keyframes grad {
+  0% {
+    background-position: 0% 5%
+  }
+
+  50% {
+    background-position: 100% 96%
+  }
+
+  100% {
+    background-position: 0% 5%
+  }
+}
+
+@-o-keyframes grad {
+  0% {
+    background-position: 0% 5%
+  }
+
+  50% {
+    background-position: 100% 96%
+  }
+
+  100% {
+    background-position: 0% 5%
+  }
+}
+
+@keyframes grad {
+  0% {
+    background-position: 0% 5%
+  }
+
+  50% {
+    background-position: 100% 96%
+  }
+
+  100% {
+    background-position: 0% 5%
+  }
+
+}
+
+.transition-wipe {
+  transition: .7s cubic-bezier(0, 0, .58, 1);
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+html.is-animating .transition-wipe {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
+
+.fade-in {
+  animation: fadeIn 1s;
+}
+
+
+@keyframes fadeIn {
+  from {
+    transform: scale(1.02);
+    opacity: 0;
+  }
+
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.figMain {
+  animation: showUp 2s
+}
+
+@keyframes showUp {
+  from {
+    opacity: 0;
+  }
+
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* log-in-sign-up */
+
+.forms {
+  font-family: Fira Code;
+  font-weight: 600;
+}
+
+.orangeBackgroundLogin {
+  position: absolute;
+  z-index: -1;
+  height: 70%;
+  width: 50%;
+  /* left: 50%; */
+  transform: translate(10%, 5%);
+}
+
+.orangeBackgroundSignup {
+  position: absolute;
+  z-index: -1;
+  height: 70%;
+  width: 50%;
+  /* left: 50%; */
+  transform: translate(80%, 5%);
+}
+
+/* profile */
+
+.image {
+  width: 400px;
+  margin: 10px;
+  padding: 25px 25px 65px;
+  transition: 2s;
+  box-shadow: 10px 10px 25px rgb(221, 219, 209);
+}
+
+.image:hover {
+  width: 450px;
+  background: rgb(240, 240, 240);
+}
+
+.personalSection {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+}
+
+
+.personalHeader {
+  display: flex;
+  position: fixed;
+  width: 40%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3%;
+}
+
+.profile-avatar {
+  object-fit: cover;
+  object-position: 100% 50;
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  border: 1px solid grey;
+}
+
+.personalHeader * {
+  padding: 10px;
+  margin: 5px auto;
+  font-family: Fira Code;
+}
+
+.images-profile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 40%;
+  float: right;
+  width: 70%;
+}
+
+/* edit profile */
+
+.personalHeader2 {
+  display: flex;
+  position: fixed;
+  width: 40%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3%;
+}
+
+.personalHeader2 * {
+  padding: 7px;
+  margin: 6px auto;
+  font-family: Fira Code;
+}
+
+.box {
+  position: relative;
+}
+
+.image2 {
+  width: 400px;
+  margin: 10px;
+  padding: 10px;
+  transition: 2s;
+  box-shadow: 10px 10px 25px rgb(221, 219, 209);
+  position: relative;
+}
+
+.deleteButton {
+  position: absolute;
+  color: #f93b20;
+  font-family: Fira Code;
+  transition: 0.5s;
+}
+
+.deleteButton:hover {
+  color: white;
+  background-color: #f93b20;
+}
+
+.profile-pic {
+  width: 150px;
+}
+
+#notLogged {
+  display: none;
+  position: absolute;
+  right: 17%;
+  top: 610px;
+  font-family: Fira Code;
+}
+
+.succededDiv {
+  position: absolute;
+  right: 20%;
+  top: 620px;
+  font-family: Fira Code;
+}
+
+.single-piece {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.created {
+  font-family: Fira Code;
+  font-size: 1em;
+  border-bottom: 1.5px solid black;
+}
+
+.image-single-piece {
+  width: 450px;
+  margin: 10px;
+  padding: 25px 25px 65px;
+  transition: 2s;
+  box-shadow: 10px 10px 25px rgb(221, 219, 209);
+}
+
+.image-single-piece:hover {
+  width: 480px;
+  background-color: rgb(240, 240, 240);
+}
+
+.you-have-no {
+  margin-top: 30%;
+  font-family: Fira Code;
+  font-size: 1.2em;
+  border-bottom: 1.5px solid black;
+}
+
+/* about */
+
+.ruido {
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.3;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.about-text {
+  width: 60%;
+  position: absolute;
+  top: 53%;
+  justify-content: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.about-text p {
+  font-weight: bold;
+  font-family: Manrope;
+  line-height: 1.6em;
+  letter-spacing: 0.6px;
+  font-size: 15px;
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+}
+
+.about-text p a {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.imagShow{
+  position: absolute;
+  left: 0;
+  z-index: -1;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>C4A</title>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <div>
+
+    <ul class="menu">
+      <li><a href="/connect" class='archive'>CONNECT</a></li>
+      <li><a href="/main" class='play'>PLAYDRAWEXPERIMENT</a></li>
+      <li><a href="/about" class='about'>ABOUT</a></li>
+
+      {{#if isUserLoggedIn}}
+      <li><a class="profile" href="/personal/profile">{{currentUserInfo.name}}</a></li>
+      <li><a class="messages" href="/personal/messages">messages</a></li>
+      <li><a class="logout" href="/auth/logout">LOGOUT</a></li>
+      {{else}}
+      <li><a class="login" href="/auth/login">LOGIN</a></li>
+      <li><a class="signup" href="/auth/signup">SIGNUP</a></li>
+      {{/if}}
+    </ul>
+
+    <div class="transition-wipe overlay"></div>
+  </div>
+  <div id="swap" class="transition-fade">
+    {{{body}}}
+  </div>
+</body>
+<script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
+<script>
+  const swup = new Swup();
+</script>
+
+</html>
