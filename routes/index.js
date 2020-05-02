@@ -1,32 +1,40 @@
 const express = require('express');
 const router = express.Router();
-const Picture = require('../models/routine.js');
-const User = require('../models/user');
+const Routine = require('../models/routine.js');
+const Exercise = require('../models/exercise');
 
 
-router.get('/', function (req, res, next) {
+router.get('/',  (req, res, next)=> {
   res.render('home');
 });
-
-router.get('/main', function (req, res, next) {
+router.get('/main',  (req, res, next)=> {
   res.render('main');
 });
 
-router.get('/about', function (req, res, next) {
+
+router.get('/about',  (req, res, next)=> {
   res.render('about');
 });
 
-router.get('/connect', function (req, res, next) {
-  Picture.find()
-    .then(pictures => {
-      res.render('connect', {
-        pictures
-      });
-    })
-    .catch(error => {
-      console.log(error);
-    });
+router.get('/results',  (req, res, next)=> {
+  res.render('results');
 });
+
+
+router.post('/main',  (req, res, next) =>{
+  
+  let object = req.body.pictureObj
+  let typeSelected = req.body.selected
+  Exercise.find({type:typeSelected, element: object})
+    .then(exercises => { 
+      
+       console.log(exercises)
+       res.json({ exercises :exercises});
+    })
+    .catch(error => console.log(error));
+});
+
+
 
 router.post("/api", (req, res) => {
   // our unix timestamp
@@ -50,7 +58,7 @@ router.post("/api", (req, res) => {
     });
 })
 
-router.get('/profiles/:id', function (req, res, next) {
+router.get('/profiles/:id',  (req, res, next)=> {
   let userId = req.params.id;
   Picture.find({user: req.params.id})
     .populate('user')

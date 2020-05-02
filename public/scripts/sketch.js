@@ -1,72 +1,66 @@
 p5.disableFriendlyErrors = true;
 
 let classifier;
-let img;
-let currentIndex = 0;
-let allImages = [];
-let predictions = [];
-
 let inputImage = document.getElementById('img')
 let urlImg
+let pictureObj
 
-inputImage.addEventListener('change', (e)=>{
+function preload() {
+  classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/6qPt5DIx-/model.json');
+}
+
+function setup() {
+  // leave setup here, do not delete!
+}
+inputImage.addEventListener('change', (e) => {
   urlImg = URL.createObjectURL(event.target.files[0])
   imageReady(urlImg)
 })
 
-function preload() {
-  classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/6qPt5DIx-/model.json');
-  data = loadJSON('assets/data.json');
-}
 
-function setup() {
- 
-  // leave setup here, do not delete!
- 
-}
 
 function imageReady(img1) {
-  img1 = createImg(urlImg,'alt' ,()=>{
+  img1 = createImg(urlImg, 'alt', () => {
     classifier.classify(img1, gotResult)
   })
   img1.hide()
 }
 
+const selectElement = document.getElementById('excercise-select')
+let filterResult
 
-let workHome
+selectElement.addEventListener('change', (event) => {
+  filterResult = event.target.value;
+  handleSubmit(filterResult);
+});
+
 function gotResult(err, results) {
   if (err) {
     console.error(err);
   }
-  console.log(results)
-  information = {
-    name: allImages[currentIndex],
-    result: results
-  };
+  console.log(results[0].label)
+  pictureObj = results[0].label
+}
 
-  predictions.push(information);
-
-  let plantArr = ['asd','asdf','asdd','dsfsdf']
-  switch (results[0].label) {
-    case 'PLANT':
-      workHome = ' someth with plants'
-      break;
-      case 'CAT':
-      workHome = ' let your cat join your gym session!'
-      break;
-      case 'SOFA':
-      workHome = ' someth with sofa'
-      break;
-      case 'COFFEE TABLE':
-      workHome = ' someth with coffee '
-      break;
-      case 'CHAIR':
-      workHome = ' someth with chairs'
-      break;
-
-    default: workHome = 'asdd'
-      break;
+async function handleSubmit(filteredResult) {
+  let selected = filteredResult
+  let data = {
+    selected,
+    pictureObj
   }
-  createDiv('thats seems like a ' + results[0].label + ' you can ' +workHome);
-  
+  const options = {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data)
+  }
+
+  const response = await fetch('/main', options)
+  const json = await response.json()
+  console.log(json.exercises)
+  let exerciseFromDB = json.exercises
+  exerciseFromDB.forEach(e => {
+    createP(`you can do ${e.name} with this intensity: ${ e.intensity}`)
+  });
 }

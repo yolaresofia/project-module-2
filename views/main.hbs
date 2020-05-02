@@ -3,11 +3,25 @@
 
         {{!-- <div id="mySketch"></div> --}}
         <input type="file" id="img" name="photo" placeholder="">
-        {{!-- <img src="" id="imageTest" alt=""> --}}
+        <label for="type-select">Choose a type of Ex</label>
+
+        <select name="exercises" id="excercise-select">
+            <option value="">--Please choose an option--</option>
+            <option value="Cardio">Cardio</option>
+            <option value="Legs">Legs</option>
+            <option value="Arms">Arms</option>
+           
+        </select> {{!-- <img src="" id="imageTest" alt=""> --}}
         <button class="saveButton b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5"
             id="submitButton">SAVE</button>
+            <a href="/results" class="saveButton b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5">go to results</a>
     </div>
-
+    <div>
+                 {{#each exercises}}
+                    <p>{{this.name}}</p>
+                 
+                  {{/each}} 
+    </div>
     {{#if isUserLoggedIn}}
     <div id="knobs">
     </div>
