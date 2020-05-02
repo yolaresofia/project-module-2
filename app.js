@@ -21,7 +21,7 @@ const personalRouter = require('./routes/personal')
 
 
 mongoose
-  .connect('mongodb+srv://milton:mileteas123@cluster0-lduwt.mongodb.net/excersaize?retryWrites=true&w=majority', {
+  .connect('mongodb+srv://milton:mileteas123@cluster0-lduwt.mongodb.net/exersaize?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -42,7 +42,7 @@ mongoose
     saveUninitialized: true,
     cookie: { maxAge: 6000000 },
     store: new MongoStore({
-      url: 'mongodb+srv://milton:mileteas123@cluster0-lduwt.mongodb.net/test?retryWrites=true&w=majority',
+      url: 'mongodb+srv://milton:mileteas123@cluster0-lduwt.mongodb.net/exersaize?retryWrites=true&w=majority',
       ttl: 24 * 60 * 60 // 1 day
     })
   }));
