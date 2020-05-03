@@ -22,7 +22,7 @@ router.get('/results',  (req, res, next)=> {
 
 
 router.post('/main',  (req, res, next) =>{
-  
+  console.log(req)
   let object = req.body.pictureObj
   let typeSelected = req.body.selected
   Exercise.find({type:typeSelected, element: object})
@@ -35,39 +35,14 @@ router.post('/main',  (req, res, next) =>{
 });
 
 
+router.get('/profile/routine/:id', (req, res, next) => {
+  
 
-router.post("/api", (req, res) => {
-  // our unix timestamp
-  const unixTimeCreated = new Date().getTime();
-  // add our unix time as a "created" property and add it to our request.body
-  const user = req.session.currentUser._id;
-  const newData = Object.assign({
-    "created": unixTimeCreated
-  }, req.body)
 
-  // add in our data object to our database using .insert()
-  Picture.create({
-      user: user,
-      data: newData
-    })
-    .then(() => {
-      res.redirect('/main');
-    })
-    .catch(error => {
-      console.log(error);
-    });
+
 })
 
-router.get('/profiles/:id',  (req, res, next)=> {
-  let userId = req.params.id;
-  Picture.find({user: req.params.id})
-    .populate('user')
-    .then(pictures => { 
-      let {name, website, city, email, imgPath} = pictures[0].user;
-      res.render('profiles', { pictures, name, email, city, website, imgPath, userId})
-    })
-    .catch(error => console.log(error));
-});
+
 
 
 

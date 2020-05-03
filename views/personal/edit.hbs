@@ -1,25 +1,15 @@
 <div class="Content">
     <section class="personalSection">
-        <form class="personalHeader2" id="profileHeader" action="/personal/{{user1._id}}/edit" enctype="multipart/form-data" method='POST'>
-            <img src="{{user1.imgPath}}" class="profile-avatar" alt="avatar">
-            <input type="file" class="" name="photo" placeholder=" ">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" value="{{user1.name}}">
-            <label for="city">City</label>
-            <input type="text" id="city" name="city" value="{{user1.city}}">
-            <label for="website">Website</label>
-            <input type="text" id="website" name="website" value="{{user1.website}}">
-            <button type="submit" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5">Save</button>
+        <form class="personalHeader2" id="profileHeader" action="/personal/{{user1._id}}/edit"
+            enctype="multipart/form-data" method='POST'>
+            <img src="{{user1.imgPath}}" class="profile-avatar" alt="">
+            <input type="file" class="image-input-btn" name="photo" placeholder="">
+            <label for="name">Username</label>
+            <input type="text" id="username" name="username" value="{{currentUserInfo.username}}">
+            <label for="name">Email</label>
+            <input type="text" id="username" name="username" value="{{currentUserInfo.email}}">
+            <button type="submit" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5">Save
+                Changes</button>
         </form>
-        <div class="images-profile">
-            {{#each pictures}}
-            <img src="{{this.data.image}}" class="image2" alt="">
-            <form action="/personal/{{id}}/delete" method="POST">
-                <button type="submit" class="deleteButton b ph2 pv2 ba b--orange grow pointer f6">delete</button>
-            </form>
-            {{else}}
-            <p class="you-have-no">You have no pictures yet!</p>
-            {{/each}}
-        </div>
 </div>
 </section>

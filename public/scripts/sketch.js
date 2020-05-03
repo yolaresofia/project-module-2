@@ -6,7 +6,7 @@ let urlImg
 let pictureObj
 
 function preload() {
-  classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/6qPt5DIx-/model.json');
+  classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/aQ7BIt5bH/model.json');
 }
 
 function setup() {
@@ -39,10 +39,11 @@ function gotResult(err, results) {
     console.error(err);
   }
   console.log(results[0].label)
+  console.log(results)
   pictureObj = results[0].label
 }
 
-async function handleSubmit(filteredResult) {
+const handleSubmit = async (filteredResult) => {
   let selected = filteredResult
   let data = {
     selected,
@@ -58,9 +59,25 @@ async function handleSubmit(filteredResult) {
 
   const response = await fetch('/main', options)
   const json = await response.json()
+
   console.log(json.exercises)
   let exerciseFromDB = json.exercises
   exerciseFromDB.forEach(e => {
-    createP(`you can do ${e.name} with this intensity: ${ e.intensity}`)
+    let eachEx = createDiv(` <div class="exercise-card">
+    <div class="exercise-card-content">
+        <div class="buttons-exer">
+            <select class="ex-move-btn">Move to</select>
+            <button class="ex-delete-btn">X</button>
+        </div>
+        <div class="ex-card-main">
+            <img src=${e.imgPath}" class="exer-img" alt="">
+            <h2>${e.name}</h2>
+            <h5>${e.element}</h5>
+            <h5>${e.intensity}</h5>
+            <h5>${e.type}</h5>
+            <p>${e.description}</p>
+        </div>
+    </div>
+</div>`)
   });
 }
