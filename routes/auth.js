@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 
 const User = require('../models/user');
+const Routine = require('../models/routine');
 
 const router = express.Router();
 const bcryptSalt = 10;
@@ -42,25 +43,46 @@ router.post("/signup", (req, res, next) => {
 
       const salt = bcrypt.genSaltSync(bcryptSalt);
       const hashedPass = bcrypt.hashSync(passwordInput, salt);
-
+      
       const userSubmission = {
         username: usernameInput,
         email: emailInput,
-        password: hashedPass,
+        password: hashedPass
       };
 
       const theUser = new User(userSubmission);
 
-      theUser.save((err) => {
+      theUser.save((err,user) => {
         if (err) {
           res.render("auth/signup", {
             errorMessage: "Something went wrong. Try again later.",
           });
           return;
         }
+      
+        const routine = {
+          user: user._id,
+          name: 'My first Routine',
+          exercises: [],
+          description: ''
+        }
 
-        req.session.currentUser = theUser;
-        res.redirect("/main");
+        Routine.create(routine, (err,newRoutine)=>{
+          if (err) {
+            res.render("auth/signup", {
+              errorMessage: "Something went wrong. Try again later.",
+            });
+            return;
+          }
+          User.findByIdAndUpdate(user._id, {$push : { routines: newRoutine._id}}, (err,updatedUser)=>{
+            req.session.currentUser = updatedUser;
+            res.redirect("/main");
+          })
+          
+        })
+        
+        
+       
       });
     }
   );

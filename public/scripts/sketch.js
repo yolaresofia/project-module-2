@@ -38,8 +38,7 @@ function gotResult(err, results) {
   if (err) {
     console.error(err);
   }
-  console.log(results[0].label)
-  console.log(results)
+
   pictureObj = results[0].label
 }
 
@@ -62,11 +61,17 @@ const handleSubmit = async (filteredResult) => {
 
   console.log(json.exercises)
   let exerciseFromDB = json.exercises
+
   exerciseFromDB.forEach(e => {
+    let optionString = json.user.routines.reduce((accumulator,routine)=>{ 
+      return accumulator += ` <option value="${routine.name}">${routine.name}</option>` }, "")
+
     let eachEx = createDiv(` <div class="exercise-card">
     <div class="exercise-card-content">
         <div class="buttons-exer">
-            <select class="ex-move-btn">Move to</select>
+            <select class="ex-move-btn">
+            ${optionString}
+            </select>
             <button class="ex-delete-btn">X</button>
         </div>
         <div class="ex-card-main">
@@ -80,4 +85,5 @@ const handleSubmit = async (filteredResult) => {
     </div>
 </div>`)
   });
+  
 }

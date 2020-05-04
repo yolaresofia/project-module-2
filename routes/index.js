@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Routine = require('../models/routine.js');
 const Exercise = require('../models/exercise');
+const User = require('../models/user');
 
 
 router.get('/',  (req, res, next)=> {
@@ -22,14 +23,16 @@ router.get('/results',  (req, res, next)=> {
 
 
 router.post('/main',  (req, res, next) =>{
-  console.log(req)
-  let object = req.body.pictureObj
+  let objectName = req.body.pictureObj
   let typeSelected = req.body.selected
-  Exercise.find({type:typeSelected, element: object})
+  Exercise.find({type:typeSelected, element: objectName})
     .then(exercises => { 
-      
-       console.log(exercises)
-       res.json({ exercises :exercises});
+      User.findById(req.session.currentUser._id)
+      .populate('routines')
+      .then(user =>{
+        res.json({ exercises, user});
+
+      })
     })
     .catch(error => console.log(error));
 });
