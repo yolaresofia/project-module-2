@@ -70,11 +70,11 @@ router.get('/addroutine/:routineName', (req, res) =>{
       _id: user
     }, {
       $push: {
-        routines:routine
+        routines: routine
       }
     })
-    //console.log(routine)
-    res.json({routine})
+    .then(res => res.json({routine}))
+    
   })
   .catch(err=> {
     console.log(err)
