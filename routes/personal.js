@@ -51,6 +51,7 @@ router.get('/edit', function (req, res, next) {
   User.findById(req.session.currentUser._id)
     .then(user => user1 = user)
   Routine.find(query)
+  .populate('user')
     .then(routines => res.render('personal/edit', {
       routines,
       user1
@@ -106,23 +107,13 @@ let routineId = req.params.id
   .catch(err=>console.log(err))
 })
 
-// router.post('/:id/delete', async (req, res, next) => {
-//   let query = {
-//     user: req.session.currentUser._id
-//   }
-//   let user1;
-//   await Routine.findByIdAndDelete(req.params.id)
-//   await User.findById(req.session.currentUser._id)
-//     .then(user => user1 = user)
-//   Rouines.find(query)
-//     .then(routines => res.render('personal/edit', {
-//       routines,
-//       user1
-//     }))
-//     .catch(error => {
-//       console.log('Error while deleting', error);
-//     })
-// })
+router.get('/:id/delete',  (req, res, next) => {
+  console.log(req.params)
+  const routineId = req.params.id
+ Routine.findByIdAndDelete(routineId)
+ .then(responce => res.redirect('/personal/profile'))
+ .catch(err => console.log(err))
+})
 
 
 router.post('/:id/edit', uploadCloud.single('photo'), (req, res, next) => {
@@ -145,10 +136,12 @@ router.post('/:id/edit', uploadCloud.single('photo'), (req, res, next) => {
       $set: {
         username,
         email,
+        imgPath
       }
     })
     .then((user1) => {
-      res.render('personal/profile',user1);
+      req.session.currentUser = user1
+      res.redirect('/personal/profile');
     })
     .catch(error => {
       console.log('Error while editing', error);
