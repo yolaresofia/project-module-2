@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Picture = require('../models/routine.js');
 const User = require('../models/user');
-const Message = require('../models/excercise');
+const Message = require('../models/exercise');
 const uploadCloud = require('../config/cloudinary.js')
 
 //middleware checks if you're logged in
@@ -15,16 +15,7 @@ router.use((req, res, next) => {
   res.redirect('/auth/login');
 });
 
-router.get('/messages', function (req, res, next) {
-  let query = {
-    to: req.session.currentUser._id
-  }
 
-  Message.find(query)
-    .populate('from')
-    .then(messages => res.render('personal/messages', {messages}))
-    .catch(error => console.log(error))
-});
 
 router.get('/profile', function (req, res, next) {
   let query = {
