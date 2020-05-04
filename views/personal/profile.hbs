@@ -1,18 +1,49 @@
    <div class="Content">
-   <section class="personalSection">
-       <header class="personalHeader" id="profileHeader">
-           <img src="{{user1.imgPath}}" class="profile-avatar" alt="">
-           <h1 class="">{{user1.name}}</h1>
-           <h2 class="">{{user1.city}}</h2>
-           <h2 class="">{{user1.website}}</h2>
-           <a href="/personal/edit" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5">Edit profile</a>
-       </header>
-       <div class="images-profile">
-           {{#each pictures}}
-           <img src="{{this.data.image}}" class="image" alt="">
-           {{else}}
-           <p class="you-have-no">You have no routines yet!</p>
-           {{/each}}
-       </div>
-   </section>
+       <section class="personalSection">
+           <header class="personalHeader" id="profileHeader">
+               <img src="{{user1.imgPath}}" class="profile-avatar" alt="">
+               <h1 class="">{{user1.username}}</h1>
+               <h2 class="">{{user1.email}}</h2>
+
+               <a href="/personal/edit" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5">Edit
+                   profile</a>
+           </header>
+           <div>
+           </div>
+           <div class="routines-profile">
+               <button onclick="displayInput()">New Routine</button>
+               <div id="newRoutine" style="display: none">
+                   <input type="text" name="newRoutineName" id="routineName" placeholder="Your routine name">
+                   <button class="add-btn">ADD</button>
+               </div>
+               {{#each routines}}
+               <a href="/personal/routine/{{this._id}}">
+                   <h4>{{this.name}}</h4>
+               </a>
+
+               {{else}}
+               <p class="you-have-no">You have no routines yet!</p>
+               {{/each}}
+           </div>
+       </section>
    </div>
+
+   <script>
+       let newRoutine = document.getElementById('newRoutine')
+       let routineValue; 
+       function displayInput() {
+           newRoutine.style.display = 'block'
+       }
+       let routineName = document.getElementById('routineName')
+
+       routineName.addEventListener('change', (event) => {
+           routineValue = event.target.value;
+       });
+
+       const addBtn = document.querySelector('.add-btn')
+       addBtn.addEventListener('click', (e) => {
+       fetch(`/personal/addroutine/${routineValue}`)
+       .then(res=>console.log(res))
+       .catch(err => console.allert(err))
+       })
+   </script>

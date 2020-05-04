@@ -1,75 +1,76 @@
 <main class="main-page fade-in">
     <section class="top">
         <div class="instructions-main">
-        <div class="intro-card">
-            <div class="intro-card-content">
-                <div class="intro-card-main">
-                    <h1>HOLA</h1>
-                    <h5>sdas</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, possimus vitae? Quaerat
-                        dolores
-                        explicabo tenetur, eius ab, ducimus officiis, quos officia nemo adipisci consectetur impedit
-                        expedita
-                        cumque voluptatibus alias cum.
-                    </p>
+            <div class="intro-card">
+                <div class="intro-card-content">
+                    <div class="intro-card-main">
+                        <h1>HOLA</h1>
+                        <h5>sdas</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, possimus vitae? Quaerat
+                            dolores
+                            explicabo tenetur, eius ab, ducimus officiis, quos officia nemo adipisci consectetur impedit
+                            expedita
+                            cumque voluptatibus alias cum.
+                        </p>
 
-                    {{#each exercise}}
-                    <img src="{{this.data.image}}" class="exer-img" alt="">
-                    <h2>{{this.exercise.title}}</h2>
-                    <h5>{{this.exercise.description}}</h5>
-                    <h5>{{this.exercise.duration}}</h5>
-                    {{/each}}
+                        {{#each exercise}}
+                        <img src="{{this.data.image}}" class="exer-img" alt="">
+                        <h2>{{this.exercise.title}}</h2>
+                        <h5>{{this.exercise.description}}</h5>
+                        <h5>{{this.exercise.duration}}</h5>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="intro-card">
+                <div class="intro-card-content">
+                    <div class="intro-card-main">
+                        <h1>HOLA</h1>
+                        <h5>sdas</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, possimus vitae? Quaerat
+                            dolores
+                            explicabo tenetur, eius ab, ducimus officiis, quos officia nemo adipisci consectetur impedit
+                            expedita
+                            cumque voluptatibus alias cum.
+                        </p>
+
+                        {{#each exercise}}
+                        <img src="{{this.data.image}}" class="exer-img" alt="">
+                        <h2>{{this.exercise.title}}</h2>
+                        <h5>{{this.exercise.description}}</h5>
+                        <h5>{{this.exercise.duration}}</h5>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="intro-card">
+                <div class="intro-card-content">
+                    <div class="intro-card-main">
+                        <h1>HOLA</h1>
+                        <h5>sdas</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, possimus vitae? Quaerat
+                            dolores
+                            explicabo tenetur, eius ab, ducimus officiis, quos officia nemo adipisci consectetur impedit
+                            expedita
+                            cumque voluptatibus alias cum.
+                        </p>
+
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="intro-card">
-            <div class="intro-card-content">
-                <div class="intro-card-main">
-                    <h1>HOLA</h1>
-                    <h5>sdas</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, possimus vitae? Quaerat
-                        dolores
-                        explicabo tenetur, eius ab, ducimus officiis, quos officia nemo adipisci consectetur impedit
-                        expedita
-                        cumque voluptatibus alias cum.
-                    </p>
-
-                    {{#each exercise}}
-                    <img src="{{this.data.image}}" class="exer-img" alt="">
-                    <h2>{{this.exercise.title}}</h2>
-                    <h5>{{this.exercise.description}}</h5>
-                    <h5>{{this.exercise.duration}}</h5>
-                    {{/each}}
-                </div>
-            </div>
-        </div>
-        <div class="intro-card">
-            <div class="intro-card-content">
-                <div class="intro-card-main">
-                    <h1>HOLA</h1>
-                    <h5>sdas</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, possimus vitae? Quaerat
-                        dolores
-                        explicabo tenetur, eius ab, ducimus officiis, quos officia nemo adipisci consectetur impedit
-                        expedita
-                        cumque voluptatibus alias cum.
-                    </p>
-
-                </div>
-            </div>
-        </div>
-    </div>
 
         {{#if isUserLoggedIn}}
-        <a href="">Get ready to get SWEATY!</a>
-
+        <div class="getReady">
+            <a href="#bottom">Get ready to get SWEATY!</a>
+        </div>
 
         {{else}}
         <p style="notLog"> <a href="">Log In </a> or <a href="">Sign Up</a> to start exersAIze!</p>
         {{/if}}
     </section>
     {{#if isUserLoggedIn}}
-    <section class="bottom">
+    <section class="bottom" id="bottom">
         <div class='sketch-button'>
             <input type="file" id="img" name="photo" placeholder="">
             <label for="type-select">Choose a type of Ex</label>
@@ -83,7 +84,7 @@
 
         </div>
     </section>
-    {{/if}} 
+    {{/if}}
 </main>
 
 
