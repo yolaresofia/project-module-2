@@ -12,57 +12,59 @@ router.get('/signup', (req, res, next) => {
   });
 });
 
-router.post('/signup', (req, res, next) => {
-  const nameInput = req.body.name;
+router.post("/signup", (req, res, next) => {
+  const usernameInput = req.body.username;
   const emailInput = req.body.email;
   const passwordInput = req.body.password;
 
-  if (emailInput === '' || passwordInput === '') {
-    res.render('auth/signup', {
-      errorMessage: 'Enter both email and password to sign up.'
+  if (emailInput === "" || passwordInput === "") {
+    res.render("auth/signup", {
+      errorMessage: "Enter both email and password to sign up.",
     });
     return;
   }
 
-  User.findOne({ email: emailInput }, '_id', (err, existingUser) => {
-    if (err) {
-      next(err);
-      return;
-    }
-
-    if (existingUser !== null) {
-      res.render('auth/signup', {
-        errorMessage: `The email ${emailInput} is already in use.`
-      });
-      return;
-    }
-
-    const salt = bcrypt.genSaltSync(bcryptSalt);
-    const hashedPass = bcrypt.hashSync(passwordInput, salt);
-
-    const userSubmission = {
-      name: nameInput,
-      email: emailInput,
-      password: hashedPass,
-      
-    };
-
-    const theUser = new User(userSubmission);
-
-    theUser.save(err => {
+  User.findOne(
+    { email: emailInput, username: usernameInput },
+    "_id",
+    (err, existingUser) => {
       if (err) {
-        res.render('auth/signup', {
-          errorMessage: 'Something went wrong. Try again later.'
+        next(err);
+        return;
+      }
+
+      if (existingUser !== null) {
+        res.render("auth/signup", {
+          errorMessage: `The email or username ${usernameInput} already exist in our database, please try again.`,
         });
         return;
       }
-      
-      req.session.currentUser = theUser;
-      res.redirect('/main');
-    });
-  });
-});
 
+      const salt = bcrypt.genSaltSync(bcryptSalt);
+      const hashedPass = bcrypt.hashSync(passwordInput, salt);
+
+      const userSubmission = {
+        username: usernameInput,
+        email: emailInput,
+        password: hashedPass,
+      };
+
+      const theUser = new User(userSubmission);
+
+      theUser.save((err) => {
+        if (err) {
+          res.render("auth/signup", {
+            errorMessage: "Something went wrong. Try again later.",
+          });
+          return;
+        }
+
+        req.session.currentUser = theUser;
+        res.redirect("/main");
+      });
+    }
+  );
+});
 router.get('/login', (req, res, next) => {
     res.render('auth/login', {
       errorMessage: ''

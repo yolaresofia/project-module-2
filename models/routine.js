@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 const routineSchema = new Schema(
   {
+    user: { type: Schema.Types.ObjectId, ref: 'User' },
     name: String,
-    exercise: [{type: Schema.Types.ObjectId, ref: 'Exercise',default:'myfe'}],
+    exercises: [{type: Schema.Types.ObjectId, ref: 'Exercise'}],
     description: String
   }
 );

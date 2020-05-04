@@ -15,16 +15,7 @@ router.use((req, res, next) => {
   res.redirect('/auth/login');
 });
 
-router.get('/messages', function (req, res, next) {
-  let query = {
-    to: req.session.currentUser._id
-  }
 
-  Message.find(query)
-    .populate('from')
-    .then(messages => res.render('personal/messages', {messages}))
-    .catch(error => console.log(error))
-});
 
 router.get('/profile', function (req, res, next) {
   let query = {
