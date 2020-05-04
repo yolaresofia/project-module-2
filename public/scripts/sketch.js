@@ -64,9 +64,9 @@ const handleSubmit = async (filteredResult) => {
 
   exerciseFromDB.forEach(e => {
     let optionString = json.user.routines.reduce((accumulator,routine)=>{ 
-      return accumulator += ` <option value="${routine.name}">${routine.name}</option>` }, "")
+      return accumulator += `<option value="add/${e._id}/${routine._id}">${routine.name}</option>` }, "")
 
-    let eachEx = createDiv(` <div class="exercise-card">
+    let eachEx = createDiv(` <div value="/${e._id}" class="exercise-card">
     <div class="exercise-card-content">
         <div class="buttons-exer">
             <select class="ex-move-btn">

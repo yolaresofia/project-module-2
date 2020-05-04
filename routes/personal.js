@@ -1,7 +1,7 @@
 //const User = require('../models/user');
 const express = require('express');
 const router = express.Router();
-const Picture = require('../models/routine.js');
+const Routine = require('../models/routine.js');
 const User = require('../models/user');
 const Message = require('../models/exercise');
 const uploadCloud = require('../config/cloudinary.js')
@@ -24,9 +24,9 @@ router.get('/profile', function (req, res, next) {
   let user1;
   User.findById(req.session.currentUser._id)
     .then(user => user1 = user)
-  Picture.find(query)
-    .then(pictures => res.render('personal/profile', {
-      pictures,
+  Routine.find(query)
+    .then(routines => res.render('personal/profile', {
+      routines,
       user1
     }))
     .catch(error => console.log(error));
@@ -40,9 +40,9 @@ router.get('/edit', function (req, res, next) {
   let user1;
   User.findById(req.session.currentUser._id)
     .then(user => user1 = user)
-  Picture.find(query)
-    .then(pictures => res.render('personal/edit', {
-      pictures,
+  Routine.find(query)
+    .then(routines => res.render('personal/edit', {
+      routines,
       user1
     }))
     .catch(error => console.log(error));
@@ -53,12 +53,12 @@ router.post('/:id/delete', async (req, res, next) => {
     user: req.session.currentUser._id
   }
   let user1;
-  await Picture.findByIdAndDelete(req.params.id)
+  await Routine.findByIdAndDelete(req.params.id)
   await User.findById(req.session.currentUser._id)
     .then(user => user1 = user)
-  Picture.find(query)
-    .then(pictures => res.render('personal/edit', {
-      pictures,
+  Routine.find(query)
+    .then(routines => res.render('personal/edit', {
+      routines,
       user1
     }))
     .catch(error => {
@@ -117,5 +117,7 @@ router.post('/:id/edit', uploadCloud.single('photo'), (req, res, next) => {
       console.log('Error while editing', error);
     })
 })
+
+
 
 module.exports = router;

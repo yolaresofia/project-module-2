@@ -8,7 +8,6 @@ const userSchema = new Schema({
   imgName: String,
   imgPath: String,
   routines: [{type: Schema.Types.ObjectId, ref: 'Routine'}]
-  
 });
 
 userSchema.set('timestamps', true);

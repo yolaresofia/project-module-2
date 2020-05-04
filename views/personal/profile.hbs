@@ -1,15 +1,15 @@
    <div class="Content">
    <section class="personalSection">
        <header class="personalHeader" id="profileHeader">
-           <img src="{{user1.imgPath}}" class="profile-avatar" alt="">
-           <h1 class="">{{user1.name}}</h1>
-           <h2 class="">{{user1.city}}</h2>
-           <h2 class="">{{user1.website}}</h2>
+           <img src="{{currentUserInfo.imgPath}}" class="profile-avatar" alt="">
+           <h1 class="">{{currentUserInfo.username}}</h1>
+           <h2 class="">{{currentUserInfo.city}}</h2>
+           <h2 class="">{{currentUserInfo.website}}</h2>
            <a href="/personal/edit" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5">Edit profile</a>
        </header>
        <div class="images-profile">
-           {{#each pictures}}
-           <img src="{{this.data.image}}" class="image" alt="">
+           {{#each routines}}
+           <a href="/personal/{{this._id}}"><h4>{{this.name}}</h4></a>
            {{else}}
            <p class="you-have-no">You have no routines yet!</p>
            {{/each}}
