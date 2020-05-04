@@ -1,0 +1,33 @@
+<div class="Content">
+    <section class="personalSection">
+        <header class="routineHeader" id="routineHeader">
+            <h1 class="username-exercise">{{currentUserInfo.username}} {{this.routine.title}}</h1>
+        </header>
+        <div class="exercise-card">
+            <div class="exercise-card-content">
+                <div class="buttons-exer">
+                    <button class="ex-move-btn">Move to</button>
+                    <button class="ex-delete-btn">X</button>
+                </div>
+                <div class="ex-card-main">
+                    <h1>HOLA</h1>
+                    <h5>sdas</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, possimus vitae? Quaerat
+                        dolores
+                        explicabo tenetur, eius ab, ducimus officiis, quos officia nemo adipisci consectetur impedit
+                        expedita
+                        cumque voluptatibus alias cum.
+                    </p>
+                    
+                    {{#each exercise}}
+                    <img src="{{this.data.image}}" class="exer-img" alt="">
+                    <h2>{{this.exercise.title}}</h2>
+                    <h5>{{this.exercise.description}}</h5>
+                    <h5>{{this.exercise.duration}}</h5>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        
+    </section>
+</div>
