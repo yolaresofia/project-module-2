@@ -43,7 +43,8 @@ router.post('/signup', (req, res, next) => {
     const userSubmission = {
       name: nameInput,
       email: emailInput,
-      password: hashedPass
+      password: hashedPass,
+      
     };
 
     const theUser = new User(userSubmission);

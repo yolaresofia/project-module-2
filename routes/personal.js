@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Picture = require('../models/routine.js');
 const User = require('../models/user');
-const Message = require('../models/excercise');
+const Message = require('../models/exercise');
 const uploadCloud = require('../config/cloudinary.js')
 
 //middleware checks if you're logged in

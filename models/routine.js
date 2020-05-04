@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const routineSchema = new Schema(
   {
     name: String,
-    outines: [{type: Schema.Types.ObjectId, ref: 'Excercise'}],
+    exercise: [{type: Schema.Types.ObjectId, ref: 'Exercise',default:'myfe'}],
     description: String
   }
 );
