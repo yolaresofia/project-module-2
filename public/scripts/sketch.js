@@ -64,9 +64,9 @@ const handleSubmit = async (filteredResult) => {
 
   exerciseFromDB.forEach(e => {
     let optionString = json.user.routines.reduce((accumulator,routine)=>{ 
-      return accumulator += `<option value="add/${e._id}/${routine._id}">${routine.name}</option>` }, "")
-
-    let eachEx = createDiv(` <div value="/${e._id}" class="exercise-card">
+    return accumulator += ` <option value='/personal/add/${e._id}/${routine._id}'>${routine.name}</option>` }, `<option value=''>Chose your routine</option>`)
+   
+      let eachEx = createDiv(` <div class="exercise-card">
     <div class="exercise-card-content">
         <div class="buttons-exer">
             <select class="ex-move-btn">
@@ -84,6 +84,16 @@ const handleSubmit = async (filteredResult) => {
         </div>
     </div>
 </div>`)
+      const selectedElement = eachEx.elt.querySelector('.ex-move-btn')
+      selectedElement.addEventListener('change', (e)=>{
+       //location = e.target.value
+       fetch(e.target.value)
+       .then(response => {
+         e.target.value = ''
+         console.log('success')
+         console.log(response.json())
+        })
+      })
   });
   
 }

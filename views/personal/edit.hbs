@@ -1,13 +1,13 @@
 <div class="Content">
     <section class="personalSection">
-        <form class="personalHeader2" id="profileHeader" action="/personal/{{user1._id}}/edit"
+        <form class="personalHeader2" id="profileHeader" action="/personal/{{currentUserInfo._id}}/edit"
             enctype="multipart/form-data" method='POST'>
-            <img src="{{user1.imgPath}}" class="profile-avatar" alt="">
+            <img src="{{currentUserInfo.imgPath}}" class="profile-avatar" alt="">
             <input type="file" class="image-input-btn" name="photo" placeholder="">
             <label for="name">Username</label>
             <input type="text" id="username" name="username" value="{{currentUserInfo.username}}">
             <label for="name">Email</label>
-            <input type="text" id="username" name="username" value="{{currentUserInfo.email}}">
+            <input type="text" id="username" name="email" value="{{currentUserInfo.email}}">
             <button type="submit" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5">Save
                 Changes</button>
         </form>

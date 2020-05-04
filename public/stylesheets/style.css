@@ -523,7 +523,7 @@ html.is-animating .transition-fade {
 
 .personalSection {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin-top: 50px;
 }
 
@@ -555,12 +555,11 @@ html.is-animating .transition-fade {
   color: #fd978a;
 }
 
-.images-profile {
+.routines-profile {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-left: 40%;
-  float: right;
+  flex-flow: column;
+  justify-content: right;
+  align-items: flex-end;
   width: 70%;
 }
 
@@ -712,14 +711,11 @@ html.is-animating .transition-fade {
 /* -------EXERCCISE CARD CONTAINERS */
 
 .routineHeader {
-  display: flex;
-  position: fixed;
   width: 40%;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 30%;
-  margin-bottom: 5%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .routineHeader h1 {
@@ -728,13 +724,17 @@ html.is-animating .transition-fade {
   color: #fd978a;
 }
 
-.exercise-card {
-  display: block;
+.allExerciseCards {
+  display: flex;
+  flex-flow: row;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.exercise-card {
   margin-top: 4rem;
   margin-left: 3%;
   width: 23%;
-  height: 25rem;
   border: 2px solid #fd978a;
   margin-top: 10rem;
 }
@@ -862,4 +862,19 @@ html.is-animating .transition-fade {
 .bottom{
   min-height: 100vh;
   width: 100%;
+}
+
+.getReady{
+  display: flex;
+  justify-content: center;
+  width: 160px;
+  height: 60px;
+  border: 1px solid orange;
+  padding: 10px;
+  margin: auto auto;
+}
+
+.getReady a {
+  width: 160px;
+  height: 60px;
 }
