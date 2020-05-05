@@ -169,6 +169,8 @@ router.get('/:routineId/exercise/:exerciseId/delete', (req, res, next) => {
 
 
 
+
+
 router.post('/:id/edit', uploadCloud.single('photo'), (req, res, next) => {
   let imgPath;
   let imgName;

@@ -40,7 +40,9 @@ button.addEventListener('click', e => {
   let routineId = routineSingle.dataset.routine;
   console.log(routineId, exerciseId)
   e.target.parentElement.parentElement.parentElement.remove()
-  fetch()
+  fetch(`/personal/${routineId}/exercise/${exerciseId}/delete`)
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err))
 })
 })
 
