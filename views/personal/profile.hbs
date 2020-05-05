@@ -19,6 +19,7 @@
                {{#each routines}}
                <a href="/personal/routine/{{this._id}}">
                    <h4>{{this.name}}</h4>
+                   <a href="/personal/{{this._id}}/delete">X</a>
                </a>
 
                {{else}}
@@ -28,22 +29,4 @@
        </section>
    </div>
 
-   <script>
-       let newRoutine = document.getElementById('newRoutine')
-       let routineValue; 
-       function displayInput() {
-           newRoutine.style.display = 'block'
-       }
-       let routineName = document.getElementById('routineName')
-
-       routineName.addEventListener('change', (event) => {
-           routineValue = event.target.value;
-       });
-
-       const addBtn = document.querySelector('.add-btn')
-       addBtn.addEventListener('click', (e) => {
-       fetch(`/personal/addroutine/${routineValue}`)
-       .then(res=>console.log(res))
-       .catch(err => console.allert(err))
-       })
-   </script>
+   <script src="/scripts/profile.js"></script>
