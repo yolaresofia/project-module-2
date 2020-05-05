@@ -31,11 +31,13 @@ router.get('/profile', function (req, res, next) {
   User.findById(req.session.currentUser._id)
     .then(user => user1 = user)
   Routine.find(query)
-  .populate('user')
-    .then(routines => res.render('personal/profile', {
-      routines,
-      user1
-    }))
+    .populate('user')
+    .then(routines => {
+      res.render('personal/profile', {
+        routines,
+        user1
+      })
+    })
     .catch(error => console.log(error));
 });
 
@@ -49,6 +51,7 @@ router.get('/edit', function (req, res, next) {
   User.findById(req.session.currentUser._id)
     .then(user => user1 = user)
   Routine.find(query)
+    .populate('user')
     .then(routines => res.render('personal/edit', {
       routines,
       user1
@@ -58,19 +61,21 @@ router.get('/edit', function (req, res, next) {
 
 //----------- Dinamic routes
 
-router.get('/addroutine/:routineName', (req, res) =>{
-  console.log(req.params)
+router.get('/addroutine/:routineName', (req, res) => {
   let name = req.params.routineName
   let user = req.session.currentUser._id
-  Routine.create({user: user, name: name})
-  .then(routine =>{
-    User.findByIdAndUpdate({
-      _id: user
-    }, {
-      $push: {
-        routines:routine
-      }
+  Routine.create({
+      user: user,
+      name: name
     })
+    .then(routine => {
+      User.findByIdAndUpdate({
+          _id: user
+        }, {
+          $push: {
+            routines: routine
+          }
+        })
     .then(res=> res.json({routine})
   )})
   .catch(err=> {
@@ -78,47 +83,49 @@ router.get('/addroutine/:routineName', (req, res) =>{
   })
 })
 
-router.get('/add/:exerciseId/:routineId',(req, res, next)=>{
-  console.log(req.params)
-  let {exerciseId, routineId} = req.params
+router.get('/add/:exerciseId/:routineId', (req, res, next) => {
+  let {
+    exerciseId,
+    routineId
+  } = req.params
   Routine.findByIdAndUpdate({
-    _id: routineId
-  }, {
-    $push: {
-      exercises:exerciseId
-    }
-  })
-  .then(res=>console.log(res))
-  .catch(err=>console.log(err))
-
-
-})
-
-router.get('/routine/:id',(req,res,next)=>{
-let routineId = req.params.id
-  Routine.findById(routineId)
-  .populate('exercises')
-  .then(routine => {
-    res.render('personal/routine', routine)})
-  .catch(err=>console.log(err))
-})
-
-router.post('/:id/delete', async (req, res, next) => {
-  let query = {
-    user: req.session.currentUser._id
-  }
-  let user1;
-  await Routine.findByIdAndDelete(req.params.id)
-  await User.findById(req.session.currentUser._id)
-    .then(user => user1 = user)
-  Rouines.find(query)
-    .then(routines => res.render('personal/edit', {
-      routines,
-      user1
-    }))
-    .catch(error => {
-      console.log('Error while deleting', error);
+      _id: routineId
+    }, {
+      $push: {
+        exercises: exerciseId
+      }
     })
+    .then(rese => res.json(rese))
+    .catch(err => console.log(err))
+
+
+})
+
+router.get('/routine/:id', (req, res, next) => {
+  let routineId = req.params.id
+  Routine.findById(routineId)
+    .populate('exercises')
+    .then(routine => {
+
+      User.findById(req.session.currentUser._id )
+        .populate('routines')
+        .then(user => {
+          console.log(user)
+          res.render('personal/routine', {
+            user,
+            routine
+          })
+        })
+
+        .catch(err => console.log(err))
+    })
+})
+
+router.get('/:id/delete', (req, res, next) => {
+  const routineId = req.params.id
+  Routine.findByIdAndDelete(routineId)
+    .then(responce => res.redirect('/personal/profile'))
+    .catch(err => console.log(err))
 })
 
 
@@ -129,7 +136,7 @@ router.post('/:id/edit', uploadCloud.single('photo'), (req, res, next) => {
     username,
     email
   } = req.body;
-  if(req.file !== undefined) {
+  if (req.file !== undefined) {
     imgPath = req.file.url;
     imgName = req.file.originalname;
   } else {
@@ -142,10 +149,12 @@ router.post('/:id/edit', uploadCloud.single('photo'), (req, res, next) => {
       $set: {
         username,
         email,
+        imgPath
       }
     })
     .then((user1) => {
-      res.render('personal/profile',user1);
+      req.session.currentUser = user1
+      res.redirect('/personal/profile');
     })
     .catch(error => {
       console.log('Error while editing', error);

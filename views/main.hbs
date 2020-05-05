@@ -60,36 +60,52 @@
             </div>
         </div>
 
+
         {{#if isUserLoggedIn}}
         <div class="getReady">
-            <a href="#bottom">Get ready to get SWEATY!</a>
+
+            <button onclick="myFunction()" class="b ph3 pv2 input-reset ba b--white bg-orange grow pointer f5"
+                type="submit">Get ready to get SWEATY!</button>
         </div>
+        {{!-- 
+        <div class="mt3"></div> --}}
 
         {{else}}
-        <p style="notLog"> <a href="">Log In </a> or <a href="">Sign Up</a> to start exersAIze!</p>
+        <p class="notLog"> <a href="">Log In </a> or <a href="">Sign Up</a> to start exersAIze!</p>
         {{/if}}
     </section>
+
     {{#if isUserLoggedIn}}
     <section class="bottom" id="bottom">
-        <div class='sketch-button'>
+
+        <div class="inputsPhoto">
+            <h4>Upload a photo !</h4>
             <input type="file" id="img" name="photo" placeholder="">
-            <label for="type-select">Choose a type of Ex</label>
-
-            <select name="exercises" id="excercise-select">
-                <option value="">--Please choose an option--</option>
-                <option value="Cardio">Cardio</option>
-                <option value="Legs">Legs</option>
-                <option value="Arms">Arms</option>
-            </select>
-
+            
         </div>
+        <div class="inputsEx">
+            <h4>Choose a type of Ex</h4>
+            <label for="type-select"></label>
+        <select name="exercises" id="excercise-select">
+            <option value="">--Please choose an option--</option>
+            <option value="Cardio">Cardio</option>
+            <option value="Legs">Legs</option>
+            <option value="Arms">Arms</option>
+        </select>
+        </div>
+
     </section>
     {{/if}}
+
 </main>
-
-
+<script>
+    function myFunction() {
+        var elmnt = document.getElementById("bottom");
+        elmnt.scrollIntoView();
+    }
+</script>
 <!-- p5 libraries -->
-
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
 <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>

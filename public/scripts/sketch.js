@@ -59,14 +59,15 @@ const handleSubmit = async (filteredResult) => {
   const response = await fetch('/main', options)
   const json = await response.json()
 
-  console.log(json.exercises)
+  console.log(json)
   let exerciseFromDB = json.exercises
 
   exerciseFromDB.forEach(e => {
-    let optionString = json.user.routines.reduce((accumulator,routine)=>{ 
-    return accumulator += ` <option value='/personal/add/${e._id}/${routine._id}'>${routine.name}</option>` }, `<option value=''>Chose your routine</option>`)
-   
-      let eachEx = createDiv(` <div class="exercise-card">
+    let optionString = json.user.routines.reduce((accumulator, routine) => {
+      return accumulator += ` <option value='/personal/add/${e._id}/${routine._id}'>${routine.name}</option>`
+    }, `<option value=''>Chose your routine</option>`)
+
+    let eachEx = createDiv(` <div class="exercise-card">
     <div class="exercise-card-content">
         <div class="buttons-exer">
             <select class="ex-move-btn">
@@ -84,16 +85,21 @@ const handleSubmit = async (filteredResult) => {
         </div>
     </div>
 </div>`)
-      const selectedElement = eachEx.elt.querySelector('.ex-move-btn')
-      selectedElement.addEventListener('change', (e)=>{
-       //location = e.target.value
-       fetch(e.target.value)
-       .then(response => {
-         e.target.value = ''
-         console.log('success')
-         console.log(response.json())
+    const selectedElement = eachEx.elt.querySelector('.ex-move-btn')
+    const removeElement = eachEx.elt.querySelector('.ex-delete-btn')
+    removeElement.addEventListener('click', (e) => {
+      eachEx.elt.remove()
+    })
+    selectedElement.addEventListener('change', (e) => {
+      //location = e.target.value
+      eachEx.elt.remove()
+      fetch(e.target.value)
+        .then(response => {
+          e.target.value = ''
+          console.log('success')
+          console.log(response.json())
         })
-      })
+    })
   });
-  
+
 }
