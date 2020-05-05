@@ -5,22 +5,22 @@
                <h1 class="">{{user1.username}}</h1>
                <h2 class="">{{user1.email}}</h2>
 
-               <a href="/personal/edit" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5">Edit
+               <a href="/personal/edit" class="b ph3 pv2 input-reset ba b--orange bg-transparent grow pointer f5">Edit
                    profile</a>
            </header>
            <div>
            </div>
            <div class="routines-profile">
-               <button onclick="displayInput()">New Routine</button>
+               <button onclick="displayInput()" class="b ph3 pv2 input-reset ba b--orange bg-transparent grow pointer f5">New Routine</button>
                <div id="newRoutine" style="display: none">
                    <input type="text" name="newRoutineName" id="routineName" placeholder="Your routine name">
                    <button class="add-btn">ADD</button>
                </div>
                {{#each routines}}
-               <a href="/personal/routine/{{this._id}}">
-                   <h4>{{this.name}}</h4>
-               </a>
-
+               <div class="eachRoutine">
+               <a href="/personal/routine/{{this._id}}">{{this.name}}</a>
+                <a href="/personal/{{this._id}}/delete">X</a>
+                </div>
                {{else}}
                <p class="you-have-no">You have no routines yet!</p>
                {{/each}}
@@ -28,22 +28,4 @@
        </section>
    </div>
 
-   <script>
-       let newRoutine = document.getElementById('newRoutine')
-       let routineValue; 
-       function displayInput() {
-           newRoutine.style.display = 'block'
-       }
-       let routineName = document.getElementById('routineName')
-
-       routineName.addEventListener('change', (event) => {
-           routineValue = event.target.value;
-       });
-
-       const addBtn = document.querySelector('.add-btn')
-       addBtn.addEventListener('click', (e) => {
-       fetch(`/personal/addroutine/${routineValue}`)
-       .then(res=>console.log(res))
-       .catch(err => console.allert(err))
-       })
-   </script>
+   <script src="/scripts/profile.js"></script>
