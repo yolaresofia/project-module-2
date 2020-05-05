@@ -1,24 +1,35 @@
 <div class="Content">
     <section class="personalSection">
         <header class="routineHeader" id="routineHeader">
-            <h1 class="username-exercise">{{this.name}}</h1>
+            <h1 class="username-exercise">{{routine.name}}</h1>
         </header>
         <div class="allExerciseCards">
-        {{#each exercises }}
-        <div class="exercise-card">
-            <div class="exercise-card-content">
-                <div class="buttons-exer">
-                    <button class="ex-move-btn">Move to</button>
-                    <a id="ex-delete-btn" class="ex-delete-btn">X</a>
-                </div>
-                <div class="ex-card-main">
-                    <h2>{{this.name}}</h2>
-                    <h5>{{this.description}}</h5>
-                    <h5>{{this.intensity}}</h5>
+
+
+
+            <p>{{currentUserInfo.routines}}</p>
+
+            {{#each routine.exercises}}
+            <div class="exercise-card">
+                <div class="exercise-card-content">
+                    <div class="buttons-exer">
+                        <select name="" id="" class="ex-move-button">
+                            <select name="" id="" class="ex-move-button">
+                                {{#each user.routines}}
+                                <option value="{{this.name}}">{{this.name}}</option>
+                                {{/each}}
+                            </select>
+                        </select>
+                        <a id="ex-delete-btn" class="ex-delete-btn">X</a>
+                    </div>
+                    <div class="ex-card-main">
+                        <h2>{{this.name}}</h2>
+                        <h5>{{this.description}}</h5>
+                        <h5>{{this.intensity}}</h5>
+                    </div>
                 </div>
             </div>
+            {{/each}}
         </div>
-        {{/each}}
-    </div>
     </section>
 </div>

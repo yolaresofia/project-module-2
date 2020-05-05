@@ -62,13 +62,18 @@
 
         {{#if isUserLoggedIn}}
         <div class="getReady">
-            <a href="#bottom">Get ready to get SWEATY!</a>
+           
+            <a href="#goto" class="b ph3 pv2 input-reset ba b--white bg-orange grow pointer f5" type="submit"
+          >Get ready to get SWEATY!</a>
         </div>
+    {{!-- 
+        <div class="mt3"></div> --}}
 
         {{else}}
         <p style="notLog"> <a href="">Log In </a> or <a href="">Sign Up</a> to start exersAIze!</p>
         {{/if}}
     </section>
+    
     {{#if isUserLoggedIn}}
     <section class="bottom" id="bottom">
         <div class='sketch-button'>
@@ -85,6 +90,9 @@
         </div>
     </section>
     {{/if}}
+    <div id="goto">
+        a
+    </div>
 </main>
     
 <!-- p5 libraries -->

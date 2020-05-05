@@ -810,11 +810,11 @@ html.is-animating .transition-fade {
   display: block;
   flex-wrap: wrap;
   margin-top: 3rem;
-  margin-left: 3%;
-  width: 27%;
-  height: 24rem;
+  margin: 2% 1%;
+  width: 31%;
+  height: 500px;
   border: 2px solid #fd978a;
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
 }
 
 .intro-card-content{
@@ -867,10 +867,7 @@ html.is-animating .transition-fade {
 .getReady{
   display: flex;
   justify-content: center;
-  width: 160px;
-  height: 60px;
-  border: 1px solid orange;
-  padding: 10px;
+ 
   margin: auto auto;
 }
 

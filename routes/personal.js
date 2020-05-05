@@ -31,11 +31,13 @@ router.get('/profile', function (req, res, next) {
   User.findById(req.session.currentUser._id)
     .then(user => user1 = user)
   Routine.find(query)
-  .populate('user')
-    .then(routines => {res.render('personal/profile', {
-      routines,
-      user1
-    }) })
+    .populate('user')
+    .then(routines => {
+      res.render('personal/profile', {
+        routines,
+        user1
+      })
+    })
     .catch(error => console.log(error));
 });
 
@@ -51,7 +53,7 @@ router.get('/edit', function (req, res, next) {
   User.findById(req.session.currentUser._id)
     .then(user => user1 = user)
   Routine.find(query)
-  .populate('user')
+    .populate('user')
     .then(routines => res.render('personal/edit', {
       routines,
       user1
@@ -61,58 +63,74 @@ router.get('/edit', function (req, res, next) {
 
 //----------- Dinamic routes
 
-router.get('/addroutine/:routineName', (req, res) =>{
-  console.log(req.params)
+router.get('/addroutine/:routineName', (req, res) => {
   let name = req.params.routineName
   let user = req.session.currentUser._id
-  Routine.create({user: user, name: name})
-  .then(routine =>{
-    User.findByIdAndUpdate({
-      _id: user
+  Routine.create({
+      user: user,
+      name: name
+    })
+    .then(routine => {
+      User.findByIdAndUpdate({
+          _id: user
+        }, {
+          $push: {
+            routines: routine
+          }
+        })
+        .then(res => res.json({
+          routine
+        }))
+
+    })
+    .catch(err => {
+      console.log(err)
+    })
+})
+
+router.get('/add/:exerciseId/:routineId', (req, res, next) => {
+  let {
+    exerciseId,
+    routineId
+  } = req.params
+  Routine.findByIdAndUpdate({
+      _id: routineId
     }, {
       $push: {
-        routines: routine
+        exercises: exerciseId
       }
     })
-    .then(res => res.json({routine}))
-    
-  })
-  .catch(err=> {
-    console.log(err)
-  })
-})
-
-router.get('/add/:exerciseId/:routineId',(req, res, next)=>{
-  console.log(req.params)
-  let {exerciseId, routineId} = req.params
-  Routine.findByIdAndUpdate({
-    _id: routineId
-  }, {
-    $push: {
-      exercises:exerciseId
-    }
-  })
-  .then(res=>console.log(res))
-  .catch(err=>console.log(err))
+    .then(rese => res.json(rese))
+    .catch(err => console.log(err))
 
 
 })
 
-router.get('/routine/:id',(req,res,next)=>{
-let routineId = req.params.id
+router.get('/routine/:id', (req, res, next) => {
+  let routineId = req.params.id
   Routine.findById(routineId)
-  .populate('exercises')
-  .then(routine => {
-    res.render('personal/routine', routine)})
-  .catch(err=>console.log(err))
+    .populate('exercises')
+    .then(routine => {
+
+      User.findById(req.session.currentUser._id )
+        .populate('routines')
+        .then(user => {
+          console.log(user)
+          res.render('personal/routine', {
+            user,
+            routine
+          })
+        })
+
+        .catch(err => console.log(err))
+    })
 })
 
-router.get('/:id/delete',  (req, res, next) => {
-  console.log(req.params)
+router.get('/:id/delete', (req, res, next) => {
   const routineId = req.params.id
- Routine.findByIdAndDelete(routineId)
- .then(responce => res.redirect('/personal/profile'))
- .catch(err => console.log(err))
+  Routine.findByIdAndDelete(routineId)
+    .then(responce => res.redirect('/personal/profile'))
+    .catch(err => console.log(err))
 })
 
 
@@ -123,7 +141,7 @@ router.post('/:id/edit', uploadCloud.single('photo'), (req, res, next) => {
     username,
     email
   } = req.body;
-  if(req.file !== undefined) {
+  if (req.file !== undefined) {
     imgPath = req.file.url;
     imgName = req.file.originalname;
   } else {
