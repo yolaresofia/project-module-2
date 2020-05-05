@@ -31,10 +31,11 @@ router.get('/profile', function (req, res, next) {
   User.findById(req.session.currentUser._id)
     .then(user => user1 = user)
   Routine.find(query)
+  .populate('user')
     .then(routines => res.render('personal/profile', {
       routines,
       user1
-    }) })
+    }))
     .catch(error => console.log(error));
 });
 
@@ -70,9 +71,8 @@ router.get('/addroutine/:routineName', (req, res) =>{
         routines:routine
       }
     })
-    //console.log(routine)
-    res.json({routine})
-  })
+    .then(res=> res.json({routine})
+  )})
   .catch(err=> {
     console.log(err)
   })
