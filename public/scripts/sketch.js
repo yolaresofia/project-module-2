@@ -58,8 +58,6 @@ const handleSubmit = async (filteredResult) => {
 
   const response = await fetch('/main', options)
   const json = await response.json()
-
-  console.log(json)
   let exerciseFromDB = json.exercises
 
   exerciseFromDB.forEach(e => {

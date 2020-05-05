@@ -31,7 +31,6 @@ router.post('/main',  (req, res, next) =>{
       .populate('routines')
       .then(user =>{
         res.json({ exercises, user});
-
       })
     })
     .catch(error => console.log(error));

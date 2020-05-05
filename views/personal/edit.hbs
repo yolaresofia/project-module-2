@@ -2,7 +2,7 @@
     <section class="personalSection">
         <form class="personalHeader2" id="profileHeader" action="/personal/{{currentUserInfo._id}}/edit"
             enctype="multipart/form-data" method='POST'>
-            <img src="{{currentUserInfo.imgPath}}" class="profile-avatar" alt="">
+            <img src="{{user1.imgPath}}" class="profile-avatar" alt="">
             <input type="file" class="image-input-btn" name="photo" placeholder="">
             <label for="name">Username</label>
             <input type="text" id="username" name="username" value="{{user1.username}}">

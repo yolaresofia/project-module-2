@@ -51,6 +51,7 @@ mongoose
     if (req.session.currentUser) {
       res.locals.currentUserInfo = req.session.currentUser;
       res.locals.isUserLoggedIn = true;
+      res.locals.username = req.session.currentUser.username;
     } else {
       res.locals.isUserLoggedIn = false;
     }

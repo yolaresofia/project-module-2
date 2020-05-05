@@ -12,9 +12,30 @@ routineName.addEventListener('change', (event) => {
 });
 
 const addBtn = document.querySelector('.add-btn')
-  addBtn.addEventListener('click', async () => {
-    const response = await fetch(`/personal/addroutine/${routineValue}`)
-      const json =  await response.json()
-      console.log(json)
+addBtn.addEventListener('click', async () => {
+    let data = {
+        routineValue
+    }
+    const options = {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+    }
+    try {
+        const response = await fetch(`/personal/addroutine`, options)
+        const json = await response.json()
+        const routineFromDb = json.routine
+        console.log(routineFromDb)
+        const newRoutineDiv = document.createElement('div')
+        newRoutineDiv.innerHTML = `<div class="eachRoutine">
+        <a href="/personal/routine/${routineFromDb._id}">${routineFromDb.name}</a>
+         <a href="/personal/${routineFromDb.name}/delete">X</a>
+         </div>`
+        const routineParent = document.querySelector('.routines-profile')
+        routineParent.appendChild(newRoutineDiv)
+    } catch (error) {
+        console.log(error)
+    }
 })
-

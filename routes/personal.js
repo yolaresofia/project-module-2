@@ -29,15 +29,19 @@ router.get('/profile', function (req, res, next) {
   }
   let user1;
   User.findById(req.session.currentUser._id)
-    .then(user => user1 = user)
-  Routine.find(query)
-    .populate('user')
+    .then(user => {
+      user1 = user
+      return Routine.find(query)
+        .populate('user')
+    })
     .then(routines => {
+      console.log(user1)
       res.render('personal/profile', {
         routines,
         user1
       })
     })
+
     .catch(error => console.log(error));
 });
 
@@ -63,28 +67,33 @@ router.get('/edit', function (req, res, next) {
 
 //----------- Dinamic routes
 
-router.get('/addroutine/:routineName', (req, res) => {
-  let name = req.params.routineName
+router.post('/addroutine', (req, res) => {
+  let name = req.body.routineValue
   let user = req.session.currentUser._id
+  let newRoutine;
   Routine.create({
       user: user,
       name: name
     })
     .then(routine => {
+      newRoutine = routine;
       User.findByIdAndUpdate({
-          _id: user
-        }, {
-          $push: {
-            routines: routine
-          }
+        _id: user
+      }, {
+        $push: {
+          routines: routine
+        }
+      })
+      .populate('routines')
+      .then(user => {
+        console.log(user)
+        res.json({
+          routine: newRoutine
         })
-        .then(res => res.json({
-          routine
-        }))
-
-    })
-    .catch(err => {
-      console.log(err)
+      })
+      .catch(err => {
+        console.log(err)
+      })
     })
 })
 
@@ -112,10 +121,10 @@ router.get('/routine/:id', (req, res, next) => {
     .populate('exercises')
     .then(routine => {
 
-      User.findById(req.session.currentUser._id )
+      User.findById(req.session.currentUser._id)
         .populate('routines')
         .then(user => {
-          console.log(user)
+          console.log(user, routine)
           res.render('personal/routine', {
             user,
             routine
@@ -127,11 +136,37 @@ router.get('/routine/:id', (req, res, next) => {
 })
 
 router.get('/:id/delete', (req, res, next) => {
+  const user = req.session.currentUser._id
   const routineId = req.params.id
   Routine.findByIdAndDelete(routineId)
-    .then(responce => res.redirect('/personal/profile'))
+    .then(routine => {
+      return User.findByIdAndUpdate({
+        _id: user
+      }, {
+        $pull: {
+          routines: routineId
+        }
+      })
+    })
+    .then(res.redirect('/personal/profile'))
     .catch(err => console.log(err))
 })
+
+
+
+router.get('/:routineId/exercise/:exerciseId/delete', (req, res, next) => {
+  const routineId = req.params.routineId
+  const exerciseId = req.params.exerciseId
+      Routine.findByIdAndUpdate(routineId, {
+        $pull: {
+          exercises: exerciseId
+        }
+      })
+    .then(res.redirect('/personal/profile'))
+    .catch(err => console.log(err))
+})
+
+
 
 
 router.post('/:id/edit', uploadCloud.single('photo'), (req, res, next) => {
@@ -156,9 +191,14 @@ router.post('/:id/edit', uploadCloud.single('photo'), (req, res, next) => {
         email,
         imgPath
       }
+    }, {
+      new: true
     })
     .then((user1) => {
-      req.session.currentUser = user1
+      console.log('hola', user1)
+
+      req.session.currentUser = user1;
+      // res.locals.username = 
       res.redirect('/personal/profile');
     })
     .catch(error => {
