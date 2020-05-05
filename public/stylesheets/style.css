@@ -4,18 +4,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Gotu&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap");
 
-html{
+html, body{
   scroll-behavior: smooth;
 }
 
 * {
   margin: 0px;
   padding: 0px;
-  color: #000000;
+  color: #fd978a;
   background-color: #222222;
 }
 
 /*navbar FALTA MOBILE FIRST*/
+
 
 .navbar {
   border-bottom: #fd978a 2px solid;
@@ -862,6 +863,8 @@ html.is-animating .transition-fade {
 .bottom{
   min-height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .getReady{
@@ -875,3 +878,17 @@ html.is-animating .transition-fade {
   width: 160px;
   height: 60px;
 }
+
+.inputsPhoto, .inputsEx{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 50px auto;
+
+}
+.inputsPhoto *{
+  margin: 10px;
+  padding: 10px;
+  
+}
+
