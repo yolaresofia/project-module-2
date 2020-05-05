@@ -1,35 +1,48 @@
 <div class="Content">
-    <section class="personalSection">
-        <header class="routineHeader" id="routineHeader">
-            <h1 class="username-exercise">{{routine.name}}</h1>
-        </header>
-        <div class="allExerciseCards">
+  <section class="personalSection">
+    <header class="routineHeader" id="routineHeader">
+      <h1 class="username-exercise">{{routine.name}}</h1>
+      
+    </header>
+    <div class="allExerciseCards" data-routine='{{routine._id}}'>
 
+      {{#each routine.exercises}}
+      <div class="exercise-card" data-exercise='{{_id}}'>
+        <div class="exercise-card-content">
+          <div class="buttons-exer">
 
-
-            <p>{{currentUserInfo.routines}}</p>
-
-            {{#each routine.exercises}}
-            <div class="exercise-card">
-                <div class="exercise-card-content">
-                    <div class="buttons-exer">
-                        <select name="" id="" class="ex-move-button">
-                            <select name="" id="" class="ex-move-button">
-                                {{#each user.routines}}
-                                <option value="{{this.name}}">{{this.name}}</option>
-                                {{/each}}
-                            </select>
-                        </select>
-                        <a id="ex-delete-btn" class="ex-delete-btn">X</a>
-                    </div>
-                    <div class="ex-card-main">
-                        <h2>{{this.name}}</h2>
-                        <h5>{{this.description}}</h5>
-                        <h5>{{this.intensity}}</h5>
-                    </div>
-                </div>
-            </div>
-            {{/each}}
+            <select name="" id="" class="ex-move-button">
+              {{#each ../user.routines}}
+              <option value="{{this.name}}">{{this.name}}</option>
+              {{/each}}
+            </select>
+            <a id="ex-delete-btn" class="ex-delete-btn">X</a>
+          </div>
+          <div class="ex-card-main">
+            <h2>{{this.name}}</h2>
+            <h5>{{this.description}}</h5>
+            <h5>{{this.intensity}}</h5>
+          </div>
         </div>
-    </section>
+      </div>
+      {{/each}}
+    </div>
+  </section>
 </div>
+
+<script>
+
+let deleteButtons = document.querySelectorAll('#ex-delete-btn')
+let routineSingle = document.querySelector('.allExerciseCards')
+deleteButtons.forEach(button => {
+button.addEventListener('click', e => {
+  let exerciseId = e.target.parentElement.parentElement.parentElement.dataset.exercise;
+  let routineId = routineSingle.dataset.routine;
+  console.log(routineId, exerciseId)
+  e.target.parentElement.parentElement.parentElement.remove()
+  fetch()
+})
+})
+
+
+</script>
