@@ -1,7 +1,5 @@
 let newRoutine = document.getElementById('newRoutine')
 let routineValue;
-
-
 function displayInput() {
     newRoutine.style.display = 'block'
 }

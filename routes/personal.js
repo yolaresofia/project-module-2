@@ -75,23 +75,43 @@ router.post('/addroutine', (req, res) => {
     .then(routine => {
       newRoutine = routine;
       User.findByIdAndUpdate({
-        _id: user
-      }, {
-        $push: {
-          routines: routine
-        }
-      })
-      .populate('routines')
-      .then(user => {
-        res.json({
-          routine: newRoutine
+          _id: user
+        }, {
+          $push: {
+            routines: routine
+          }
         })
-      })
-      .catch(err => {
-        console.log(err)
-      })
+        .populate('routines')
+        .then(user => {
+          console.log(user)
+          res.json({
+            routine: newRoutine
+          })
+        })
+        .catch(err => {
+          console.log(err)
+        })
     })
 })
+
+router.get('/:routineId/move/:exerciseId/to/:targetRoutineId', (req, res, next) => {
+ 
+  let {routineId,exerciseId,targetRoutineId} = req.params
+
+  Promise.all([
+    Routine.findByIdAndUpdate(routineId, { $pull: { exercises: exerciseId }}),
+    Routine.findByIdAndUpdate(targetRoutineId, {$push: { exercises: exerciseId }})
+  ])
+  .then((updatedRoutines) => {
+    const sourceRoutine = updatedRoutines[0]
+    const targetRoutine = updatedRoutines[1]
+    res.status(202).send()
+  })
+  .catch(err => {
+    console.log(err)
+  })
+})
+
 
 router.get('/add/:exerciseId/:routineId', (req, res, next) => {
   let {
@@ -107,8 +127,6 @@ router.get('/add/:exerciseId/:routineId', (req, res, next) => {
     })
     .then(rese => res.json(rese))
     .catch(err => console.log(err))
-
-
 })
 
 router.get('/routine/:id', (req, res, next) => {
@@ -116,16 +134,16 @@ router.get('/routine/:id', (req, res, next) => {
   Routine.findById(routineId)
     .populate('exercises')
     .then(routine => {
-
       User.findById(req.session.currentUser._id)
         .populate('routines')
         .then(user => {
+          console.log(user, routine)
+          user.routines = user.routines.filter(x=> x._id != routineId )
           res.render('personal/routine', {
             user,
             routine
           })
         })
-
         .catch(err => console.log(err))
     })
 })
@@ -152,15 +170,14 @@ router.get('/:id/delete', (req, res, next) => {
 router.get('/:routineId/exercise/:exerciseId/delete', (req, res, next) => {
   const routineId = req.params.routineId
   const exerciseId = req.params.exerciseId
-      Routine.findByIdAndUpdate(routineId, {
-        $pull: {
-          exercises: exerciseId
-        }
-      })
+  Routine.findByIdAndUpdate(routineId, {
+      $pull: {
+        exercises: exerciseId
+      }
+    })
     .then(res.redirect('/personal/profile'))
     .catch(err => console.log(err))
 })
-
 
 
 

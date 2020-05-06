@@ -11,6 +11,7 @@ function preload() {
 
 function setup() {
   // leave setup here, do not delete!
+  noCanvas()
 }
 inputImage.addEventListener('change', (e) => {
   urlImg = URL.createObjectURL(event.target.files[0])
@@ -59,14 +60,14 @@ const handleSubmit = async (filteredResult) => {
   const response = await fetch('/main', options)
   const json = await response.json()
   let exerciseFromDB = json.exercises
-
+  // let parentEx
   exerciseFromDB.forEach(e => {
     let optionString = json.user.routines.reduce((accumulator, routine) => {
       return accumulator += ` <option value='/personal/add/${e._id}/${routine._id}'>${routine.name}</option>`
     }, `<option value=''>Chose your routine</option>`)
-
+    
     let eachEx = createDiv(` <div class="exercise-card">
-    <div class="exercise-card-content">
+   
         <div class="buttons-exer">
             <select class="ex-move-btn">
             ${optionString}
@@ -81,8 +82,14 @@ const handleSubmit = async (filteredResult) => {
             <h5>${e.type}</h5>
             <p>${e.description}</p>
         </div>
-    </div>
+    
 </div>`)
+const exContainer = document.querySelector(".each-ex");
+console.log(eachEx);
+exContainer.appendChild(eachEx.elt);
+
+      // document.getElementById('allexers').appendChild(eachEx)
+  //  eachEx.parent('.allexers')
     const selectedElement = eachEx.elt.querySelector('.ex-move-btn')
     const removeElement = eachEx.elt.querySelector('.ex-delete-btn')
     removeElement.addEventListener('click', (e) => {
