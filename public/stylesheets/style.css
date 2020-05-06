@@ -6,6 +6,7 @@
 
 html, body{
   scroll-behavior: smooth;
+  
 }
 
 * {
@@ -13,6 +14,7 @@ html, body{
   padding: 0px;
   color: #fd978a;
   background-color: #222222;
+  background-image: url('/resources/bkgrnd.png');
 }
 
 /*navbar FALTA MOBILE FIRST*/
@@ -55,6 +57,12 @@ li {
   font-size: 0.7em;
 }
 
+.section *{
+  background: none;
+}
+
+
+
 ul li a:hover {
   border-bottom: 2px solid #fd978a;
 }
@@ -92,7 +100,7 @@ ul li a:hover {
 
  p{
   position: relative;
-  top: 4.7em;
+  margin-top: 10px;
   background: none;
 }
 
@@ -112,6 +120,7 @@ ul li a:hover {
   align-items: center;
   justify-content: space-around;
   padding: 0 35px;
+ 
 }
 
 .name-use {
@@ -385,7 +394,7 @@ html.is-animating .transition-fade {
 .personalSection {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 
 .personalHeader {
@@ -593,16 +602,18 @@ html.is-animating .transition-fade {
 }
 
 .exercise-card {
-  margin-top: 4rem;
+  margin-top: 20px;
   margin-left: 3%;
-  width: 23%;
+  width: 30%;
+  min-height: 500px;
   border: 2px solid #fd978a;
-  margin-top: 10rem;
+  border-radius: 5%;
+  
 }
 
 .exercise-card h5 {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-top: 20px;
   letter-spacing: 1.5px;
   color: #fd978a;
 }
@@ -663,6 +674,13 @@ html.is-animating .transition-fade {
   margin-left: 1rem;
   margin-right: 1rem;
   margin-top: 3rem;
+}
+
+.ex-card-main h2{
+  font-size: 30px;
+  border-bottom: #fd978a solid 2px;
+
+
 }
 
 /* HOMEPAGE DESC CARDS */
@@ -814,4 +832,9 @@ html.is-animating .transition-fade {
     border-radius: 5% 5% 5% 5%;
     transform: translate(-50%, -50%) rotate(360deg);
   }
+}
+
+.allexers{
+  display: flex;
+  flex-direction: row;
 }
