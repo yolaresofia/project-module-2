@@ -148,7 +148,7 @@ background: none;
   flex-flow: column;
   align-items: center;
   justify-content: space-around;
-  padding: 0 35px;
+  padding: 0px;
  
 }
 
@@ -705,11 +705,11 @@ html.is-animating .transition-fade {
 
 .exercise-card {
   margin-top: 20px;
-  margin-left: 3%;
-  width: 250px;
+  /* margin-left: %; */
+  width: 300px;
   min-height: 700px;
   border: 2px solid #fd978a;
-  margin: auto 30px;
+  margin: auto 5px;
 
   /* border-radius: 5%; */
   
