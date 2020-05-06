@@ -11,6 +11,7 @@ function preload() {
 
 function setup() {
   // leave setup here, do not delete!
+  noCanvas()
 }
 inputImage.addEventListener('change', (e) => {
   urlImg = URL.createObjectURL(event.target.files[0])
@@ -83,6 +84,10 @@ const handleSubmit = async (filteredResult) => {
         </div>
     
 </div>`)
+const exContainer = document.querySelector(".each-ex");
+console.log(eachEx);
+exContainer.appendChild(eachEx.elt);
+
       // document.getElementById('allexers').appendChild(eachEx)
   //  eachEx.parent('.allexers')
     const selectedElement = eachEx.elt.querySelector('.ex-move-btn')

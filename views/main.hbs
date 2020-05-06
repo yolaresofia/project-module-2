@@ -4,57 +4,33 @@
             <div class="intro-card">
                 <div class="intro-card-content">
                     <div class="intro-card-main">
-                        <h1>HOLA</h1>
-                        <h5>sdas</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, possimus vitae? Quaerat
-                            dolores
-                            explicabo tenetur, eius ab, ducimus officiis, quos officia nemo adipisci consectetur impedit
-                            expedita
-                            cumque voluptatibus alias cum.
-                        </p>
-
-                        {{#each exercise}}
-                        <img src="{{this.data.image}}" class="exer-img" alt="">
-                        <h2>{{this.exercise.title}}</h2>
-                        <h5>{{this.exercise.description}}</h5>
-                        <h5>{{this.exercise.duration}}</h5>
-                        {{/each}}
+                        <img class="instruction-image" src="/resources/Asset1.png" alt="">
+                        <div>
+                        <h1>TAKE</h1>
+                        <h5 class="instructions">and upload a picture of elements you find in your house<br>(and can potentially excercise with)</h5>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="intro-card">
                 <div class="intro-card-content">
                     <div class="intro-card-main">
-                        <h1>HOLA</h1>
-                        <h5>sdas</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, possimus vitae? Quaerat
-                            dolores
-                            explicabo tenetur, eius ab, ducimus officiis, quos officia nemo adipisci consectetur impedit
-                            expedita
-                            cumque voluptatibus alias cum.
-                        </p>
-
-                        {{#each exercise}}
-                        <img src="{{this.data.image}}" class="exer-img" alt="">
-                        <h2>{{this.exercise.title}}</h2>
-                        <h5>{{this.exercise.description}}</h5>
-                        <h5>{{this.exercise.duration}}</h5>
-                        {{/each}}
+                        <img class="instruction-image" src="/resources/intr2.png" alt="">
+                        <div>
+                        <h1>SELECT</h1>
+                        <h5 class="instructions">a type of exercise you feel like doing</h5>
+                        </div>    
                     </div>
                 </div>
             </div>
             <div class="intro-card">
                 <div class="intro-card-content">
                     <div class="intro-card-main">
-                        <h1>HOLA</h1>
-                        <h5>sdas</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, possimus vitae? Quaerat
-                            dolores
-                            explicabo tenetur, eius ab, ducimus officiis, quos officia nemo adipisci consectetur impedit
-                            expedita
-                            cumque voluptatibus alias cum.
-                        </p>
-
+                        <img class="instruction-image" src="/resources/instr3.png" alt="">
+                        <div>
+                        <h1>ADD</h1>
+                        <h5 class="instructions">your exercise to your amazing routine</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -71,7 +47,7 @@
         <div class="mt3"></div> --}}
 
         {{else}}
-        <p class="notLog"> <a href="">Log In </a> or <a href="">Sign Up</a> to start exersAIze!</p>
+        <p id="notLog"> <a href="/auth/login">Log In </a> or <a href="/auth/login">Sign Up</a> to start exersAIze!</p>
         {{/if}}
     </section>
 
@@ -81,23 +57,26 @@
         <div class="inputsPhoto">
             <h4>Upload a photo !</h4>
             <input type="file" id="img" name="photo" placeholder="">
-            
+
         </div>
         <div class="inputsEx">
             <h4>Choose a type of Ex</h4>
             <label for="type-select"></label>
-        <select name="exercises" id="excercise-select">
-            <option value="">--Please choose an option--</option>
-            <option value="Cardio">Cardio</option>
-            <option value="Legs">Legs</option>
-            <option value="Arms">Arms</option>
-        </select>
+            <select name="exercises" id="excercise-select">
+                <option value="">--Please choose an option--</option>
+                <option value="Cardio">Cardio</option>
+                <option value="Legs">Legs</option>
+                <option value="Arms">Arms</option>
+            </select>
         </div>
         <div class="allexers">
-            
+
         </div>
-    </section>
     {{/if}}
+<div class="each-ex">
+    
+</div>
+    </section>
 
 </main>
 <script>
