@@ -38,16 +38,16 @@
 
 
         {{#if isUserLoggedIn}}
-        <div class="getReady">
+        <div class="getReady  ">
 
-            <button onclick="myFunction()" class="b ph3 pv2 input-reset ba b--white bg-orange grow pointer f5"
+            <button onclick="myFunction()" class="b ph4 pv3 mv2 input-reset ba b--white red grow pointer f5"
                 type="submit">Get ready to get SWEATY!</button>
         </div>
         {{!-- 
         <div class="mt3"></div> --}}
 
         {{else}}
-        <p id="notLog"> <a href="/auth/login">Log In </a> or <a href="/auth/login">Sign Up</a> to start exersAIze!</p>
+        <p id="notLog"> <a class="red bb" href="/auth/login">Log In</a> or <a class="red bb" href="/auth/login">Sign Up</a> to start exersAIze!</p>
         {{/if}}
     </section>
 
@@ -55,12 +55,12 @@
     <section class="bottom" id="bottom">
 
         <div class="inputsPhoto">
-            <h4>Upload a photo !</h4>
+            <h1>Upload a photo !</h1>
             <input type="file" id="img" name="photo" placeholder="">
 
         </div>
         <div class="inputsEx">
-            <h4>Choose a type of Ex</h4>
+            <h1>Choose a type of Exercise</h1>
             <label for="type-select"></label>
             <select name="exercises" id="excercise-select">
                 <option value="">--Please choose an option--</option>
