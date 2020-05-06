@@ -35,7 +35,6 @@ router.get('/profile', function (req, res, next) {
         .populate('user')
     })
     .then(routines => {
-      console.log(user1)
       res.render('personal/profile', {
         routines,
         user1
@@ -84,7 +83,6 @@ router.post('/addroutine', (req, res) => {
       })
       .populate('routines')
       .then(user => {
-        console.log(user)
         res.json({
           routine: newRoutine
         })
@@ -122,7 +120,6 @@ router.get('/routine/:id', (req, res, next) => {
       User.findById(req.session.currentUser._id)
         .populate('routines')
         .then(user => {
-          console.log(user, routine)
           res.render('personal/routine', {
             user,
             routine
@@ -193,8 +190,6 @@ router.post('/:id/edit', uploadCloud.single('photo'), (req, res, next) => {
       new: true
     })
     .then((user1) => {
-      console.log('hola', user1)
-
       req.session.currentUser = user1;
       // res.locals.username = 
       res.redirect('/personal/profile');

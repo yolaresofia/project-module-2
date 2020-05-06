@@ -2,7 +2,7 @@
   <section class="personalSection">
     <header class="routineHeader" id="routineHeader">
       <h1 class="username-exercise">{{routine.name}}</h1>
-      
+      <p>{{routine.description}}</p>     
     </header>
     <div class="allExerciseCards" data-routine='{{routine._id}}'>
 
@@ -31,14 +31,12 @@
 </div>
 
 <script>
-
 let deleteButtons = document.querySelectorAll('#ex-delete-btn')
 let routineSingle = document.querySelector('.allExerciseCards')
 deleteButtons.forEach(button => {
 button.addEventListener('click', e => {
   let exerciseId = e.target.parentElement.parentElement.parentElement.dataset.exercise;
   let routineId = routineSingle.dataset.routine;
-  console.log(routineId, exerciseId)
   e.target.parentElement.parentElement.parentElement.remove()
   fetch()
 })

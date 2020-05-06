@@ -94,7 +94,6 @@ const handleSubmit = async (filteredResult) => {
       fetch(e.target.value)
         .then(response => {
           e.target.value = ''
-          console.log('success')
           console.log(response.json())
         })
     })
