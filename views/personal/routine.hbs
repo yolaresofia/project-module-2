@@ -2,7 +2,7 @@
   <section class="personalSection">
     <header class="routineHeader" id="routineHeader">
       <h1 class="username-exercise">{{routine.name}}</h1>
-      
+
     </header>
     <div class="allExerciseCards" data-routine='{{routine._id}}'>
 
@@ -12,16 +12,19 @@
           <div class="buttons-exer">
 
             <select name="" id="" class="ex-move-button">
+              <option class="ex-move-id" value="">Move to</option>
+
               {{#each ../user.routines}}
-              <option value="{{this.name}}">{{this.name}}</option>
+            
+              <option class="ex-move-id" value="{{this._id}}">{{this.name}}</option>
               {{/each}}
             </select>
             <a id="ex-delete-btn" class="ex-delete-btn">X</a>
           </div>
           <div class="ex-card-main">
             <h2>{{this.name}}</h2>
-            <h5>{{this.description}}</h5>
             <h5>{{this.intensity}}</h5>
+            <p>{{this.description}}</p>
           </div>
         </div>
       </div>
@@ -31,18 +34,39 @@
 </div>
 
 <script>
+  let deleteButtons = document.querySelectorAll('#ex-delete-btn')
+  let routineSingle = document.querySelector('.allExerciseCards')
 
-let deleteButtons = document.querySelectorAll('#ex-delete-btn')
-let routineSingle = document.querySelector('.allExerciseCards')
-deleteButtons.forEach(button => {
-button.addEventListener('click', e => {
-  let exerciseId = e.target.parentElement.parentElement.parentElement.dataset.exercise;
-  let routineId = routineSingle.dataset.routine;
-  console.log(routineId, exerciseId)
-  e.target.parentElement.parentElement.parentElement.remove()
-  fetch()
-})
-})
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', e => {
+      const exerciseId = e.target.parentElement.parentElement.parentElement.dataset.exercise;
+      const routineId = routineSingle.dataset.routine;
+      console.log(routineId, exerciseId)
+      fetch(`/personal/${routineId}/exercise/${exerciseId}/delete`)
+        .then((res) => {
+          e.target.parentElement.parentElement.parentElement.remove()
+          console.log(res)
+        })
+        .catch((err) => console.log(err))
+    })
+  })
+
+  let selectedElements = document.querySelectorAll('.ex-move-button')
 
 
+  selectedElements.forEach(selected => {
+    selected.addEventListener('change', (e) => {
+      const exerciseId = e.target.parentElement.parentElement.parentElement.dataset.exercise;
+      const routineId = routineSingle.dataset.routine;
+      console.log(exerciseId, routineId)
+      const targetRoutineId = e.target.value
+      console.log(targetRoutineId, 'holiiiiiis')
+      fetch(`/personal/${routineId}/move/${exerciseId}/to/${targetRoutineId}`)
+        .then((res) => {
+          e.target.parentElement.parentElement.parentElement.remove()
+          console.log(res)
+        })
+        .catch((err) => console.log(err))
+    })
+  });
 </script>

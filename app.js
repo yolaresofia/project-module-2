@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const path = require('path');
 const mongoose = require('mongoose');
-
+const hbs = require('hbs')
 //const Picture = require('./models/picture.js');
 
 const app = express()
@@ -75,6 +75,25 @@ app.use( express.static(publicPath))
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+// hbs.registerHelper('isSame', (id1, id2, options)=>{
+
+//   console.log(id1)
+//   console.log(id2)
+//   if(id1 === id2 ){
+//     return options.fn(this)
+//   }
+//   else{
+//     return options.inverse(this)
+//   }
+// })
+
+hbs.registerHelper('ifEqual', (currentRoutine, otherRoutine, options) => {
+  console.log(currentRoutine, otherRoutine, 'hello')
+  return (currentRoutine === otherRoutine) ? options.fn(this) : options.inverse(this);
+});
+
+
 
 //MIDDLEWARE SETUP
 app.use(cookieParser());
