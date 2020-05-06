@@ -153,7 +153,7 @@ background: none;
   flex-flow: column;
   align-items: center;
   justify-content: space-around;
-  padding: 0 35px;
+  padding: 0px;
  
 }
 
@@ -353,10 +353,13 @@ html.is-animating .transition-fade {
   background: rgb(240, 240, 240);
 }
 
+
+
+
 .personalSection {
   display: flex;
   flex-direction: column;
-  /* margin-top: 50px; */
+  align-items: end;
 }
 
 .personalHeader {
@@ -367,8 +370,10 @@ html.is-animating .transition-fade {
   justify-content: center;
   align-items: center;
   margin-left: 3%;
-  border-right: #fd978a solid 2px;
+  border-right: #f32b11 solid 2px;
   height: 70%;
+  margin-top: 4rem;
+  border-bottom: none;
 }
 
 .profile-avatar {
@@ -384,7 +389,7 @@ html.is-animating .transition-fade {
   padding: 10px;
   margin: 5px auto;
   font-family: Fira Code;
-  color: #fd978a;
+  color: #f32b11;
 }
 
 .routines-profile {
@@ -392,13 +397,88 @@ html.is-animating .transition-fade {
   flex-flow: column;
   justify-content: right;
   align-items: flex-end;
-  width: 70%;
+  width: 82%;
+  margin-top: 5rem;
 }
+
+.eachRoutine {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+  justify-content: center;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #f32b11;
+  color: #f32b11;
+  align-items: flex-start;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+
+.eachRoutine * {
+  padding: 3px;
+  color: #f32b11;
+}
+
+.delete-routine-btn {
+  border: 1px solid #f32b11;
+  background: #f32b11;
+  border-radius: 50%;
+  margin-left: 1rem;
+  color: white;
+  font-size: 0.7rem;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 2rem;
+}
+
+#add-routine-btn {
+  width: 25%;
+  height: 4rem;
+  margin-bottom: 3rem;
+  cursor: pointer;
+  border: 1px solid #f32b11;
+  color: #f32b11;
+}
+
+#newRoutine {
+  width: 30%;
+  padding-right: 5%;
+}
+
+
+.add-btn {
+  width: 55%;
+  margin-top: 1.5rem;
+  margin-left: 50%;
+  height: 2.5rem;
+  border: 1px solid #f32b11;
+}
+
+
+#routineName {
+  width: 150%;
+  height: 3rem;
+  border: none;
+  border-bottom: 1px solid #f32b11;
+  float: none;
+  color: #f32b11;
+}
+
+
+#personal-edit {
+  border: 1px solid #f32b11;
+  margin-top: 1.5rem;
+}
+
 
 .images-profile p {
-  color: #fd978a;
+  color: #f32b11;
 }
-
 /* edit profile */
 
 .personalHeader2 {
@@ -410,26 +490,29 @@ html.is-animating .transition-fade {
   align-items: center;
   margin-top: 5rem;
   margin-left: 30%;
-  border-left: #fd978a 2px solid;
-  border-right: rgb(241, 194, 40) 2px solid;
+  border-left: #f32b11 2px solid;
+  border-right: #f32b11 2px solid;
   align-self: auto;
 }
-
 .personalHeader2 button {
-  color: #fd978a;
+  color: #f32b11;
   margin-top: 1rem;
 }
 
 .image-input-btn {
-  color: #fd978a;
+  color: #f32b11;
   height: 2rem;
 }
+
 .personalHeader2 * {
   padding: 7px;
   margin: 6px auto;
   font-family: Fira Code;
-  color: #fd978a;
+  color: #f32b11;
 }
+
+/* Profile End */
+
 
 .box {
   position: relative;
@@ -555,11 +638,11 @@ html.is-animating .transition-fade {
 
 .exercise-card {
   margin-top: 20px;
-  margin-left: 3%;
-  width: 250px;
+  /* margin-left: %; */
+  width: 300px;
   min-height: 700px;
   border: 2px solid #fd978a;
-  margin: auto 30px;
+  margin: auto 5px;
 
   /* border-radius: 5%; */
   
