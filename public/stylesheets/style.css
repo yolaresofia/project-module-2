@@ -180,74 +180,6 @@ background: none;
   font-family: Fira Code;
 }
 
-/*gallery*/
-
-.container-title-p-connect {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-flow: row;
-}
-
-.text-gallery {
-  margin-top: 70%;
-  margin-left: 15%;
-  font-family: Manrope;
-  font-weight: 400;
-  font-size: 1.1em;
-  width: 80%;
-  text-align: right;
-}
-
-.square {
-  height: 500px;
-  width: 400px;
-  border: 3px solid black;
-  margin-top: 7%;
-  margin-left: -10%;
-}
-
-.title-archive {
-  color: black;
-  margin-top: 17%;
-  margin-left: 15%;
-  font-size: 6em;
-  font-family: Manrope;
-  transition: 1s;
-}
-
-.orangeBackground {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-  height: 100vh;
-}
-
-.imagesInGallery {
-  width: 290px;
-  margin: 10px;
-  padding: 25px 25px 65px;
-  transition: 2s;
-  box-shadow: 1px 1px 10px rgb(240, 235, 227);
-}
-
-.imagesInGallery:hover {
-  width: 310px;
-  background: rgb(240, 235, 235);
-}
-
-.title-archive:hover {
-  color: purple;
-}
-
-.container-archive {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 a:link {
   text-decoration: none;
 }
@@ -761,11 +693,16 @@ html.is-animating .transition-fade {
 .intro-card *{
   font-family: Raleway;
 }
+
 .instructions-main{
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-bottom: 2 em;
+}
+
+.instructions{
+color: white !important;
 }
 
 .top{
