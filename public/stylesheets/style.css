@@ -693,6 +693,7 @@ html.is-animating .transition-fade {
   width: 31%;
   height: 500px;
   border: 2px solid #fd978a;
+  background-image: url('/resources/div.jpg');
   /* margin-top: 4rem; */
 }
 
