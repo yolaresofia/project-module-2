@@ -13,16 +13,18 @@ html, body{
 * {
   margin: 0px;
   padding: 0px;
-  color: #fd978a;
+
+  color: #f32b11;
   background-color: #222222;
   background-image: url('/resources/bkgrnd.png');
+  font-family: Raleway;
 }
 
 /*navbar FALTA MOBILE FIRST*/
 
 
 .navbar {
-  border-bottom: #fd978a 2px solid;
+  border-bottom:  #ff5100 1px solid;
   width: 95%;
   margin-left: 2.5%;
   height: 5%;
@@ -44,7 +46,7 @@ html, body{
   /* transform: rotate(180deg); */
   font-family: Fira Code;
   font-size: 1rem;
-  color: #fd978a;
+  color: #f32b11;
   font-weight: bold;
   letter-spacing: 4px;
   margin: 2rem;
@@ -66,7 +68,7 @@ li {
 
 
 ul li a:hover {
-  border-bottom: 2px solid #fd978a;
+  border-bottom: 2px solid  #ff5100;
 }
 
 .profile {
@@ -79,7 +81,10 @@ ul li a:hover {
 
 .logoHome{
   justify-self: flex-start;
+  font-family: Manrope;
+  color: #f87117;
 }
+
 
 /* home */
 .threeDp {
@@ -254,7 +259,7 @@ li {
 .overlay {
   position: absolute;
   width: 100%;
-  height: 10000%;
+  height: 1000%;
   top: 0;
   z-index: 10;
   left: 0;
@@ -524,8 +529,10 @@ html.is-animating .transition-fade {
 }
 
 #notLog {
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
+  letter-spacing: 3px;
+  font-weight: 500;
 }
 
 .succededDiv {
@@ -558,28 +565,15 @@ html.is-animating .transition-fade {
 
 /* about */
 
-.ruido {
-  height: 100vh;
-  width: 100vw;
-  opacity: 0.1;
-  z-index: 21;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
 .about-text {
   width: 60%;
-  position: absolute;
-  top: 53%;
-  justify-content: center;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .about-text p {
-  font-weight: bold;
   font-family: Manrope;
   line-height: 1.6em;
   letter-spacing: 0.6px;
@@ -598,6 +592,10 @@ html.is-animating .transition-fade {
   position: absolute;
   left: 0;
   z-index: -1;
+}
+
+.titleAbout {
+  
 }
 
 /* -------EXERCCISE CARD CONTAINERS */
@@ -771,8 +769,10 @@ html.is-animating .transition-fade {
 }
 
 .top{
-  min-height: 100vh;
+  min-height: 95vh;
   width: 95%;
+  border-bottom: 2px solid #fd978a;
+  ;
 }
 
 .bottom{
@@ -797,8 +797,9 @@ html.is-animating .transition-fade {
 .inputsPhoto, .inputsEx{
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 50%;
   margin: 50px auto;
+  text-align: center;
 
 }
 .inputsPhoto *{

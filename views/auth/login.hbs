@@ -1,17 +1,16 @@
 
-<section class='forms'>
-  <img src="/resources/fondoMain.jpg" class="orangeBackgroundLogin"alt="">
 <article class="pa4 pt6 black-80 fade-in">
+<section class='forms'>
   <form class="measure center" action="/auth/login" method="post" accept-charset="utf-8">
     {{#if errorMessage}}
     <p class="error-message">
       {{ errorMessage }}
     </p>
     {{/if}}
-    <legend class="f3 fw6 ph0 mh0">Login</legend>
+    <legend class="f3 fw6 ph0 dark-red mh0">Login</legend>
 
     <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
-      <legend class="ph0 mh0 f5 fw6 clip">Log in</legend>
+      <legend class="ph0 mh0 f5 fw6  clip">Log in</legend>
       <div class="mt3">
         <label class="db fw4 lh-copy f5" for="email-input">Email address</label>
         <input class="pa2 input-reset ba bg-transparent w-100 measure" type="email" name="email" id="email-input">
@@ -22,10 +21,10 @@
           id="password-input">
       </div>
     </fieldset>
-    <div class="mt3"><input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5" type="submit"
+    <div class="mt3"><input class="b ph3 pv2 input-reset ba b--orange bg-transparent grow pointer f5" type="submit"
         value="Log In"></div>
-    <p class="f4 pt2 link dim black db">Dont have an account?</p>
-    <a href="/auth/signup" class="f4 pt1 link dim black db">Sign up</a>
+    <p class="f4 pt2 link dim orange db">Dont have an account?</p>
+    <a href="/auth/signup" class="f4 pt2  link dim orange db">Sign up</a>
   </form>
 </article>
 

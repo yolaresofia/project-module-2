@@ -1,10 +1,6 @@
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
 
-<script src="/scripts/auth-background.js"></script>
-<section class='forms'>
-  <img src="/resources/fondoMain.jpg" alt="" class="orangeBackgroundSignup">
   <article class="pa4 pt6 black-80 fade-in">
+<section class='forms'>
     <form class="measure center" action="/auth/signup" method="post" accept-charset="utf-8">
       {{#if errorMessage}}
       <p class="error-message">
@@ -12,9 +8,9 @@
       </p>
       {{/if}}
       <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
-        <legend class="f3 fw6 ph0 mh0">Signup</legend>
+        <legend class="f3 fw6 ph0 red mh0">Signup</legend>
         <div class="mt3">
-          <label class="db fw6 lh-copy f5" for="username-input">Username</label>
+          <label class="db fw4 lh-copy f5" for="username-input">Username</label>
           <input class="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="username" id="name-input">
         </div>
         <div class="mt3">
@@ -27,7 +23,7 @@
             id="password-input">
         </div>
       </fieldset>
-      <div class="mt3"><input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5" type="submit"
+      <div class="mt3"><input class="b ph3 pv2 input-reset ba orange bg-transparent grow pointer f5" type="submit"
           value="Sign Up"></div>
     </form>
   </article>
