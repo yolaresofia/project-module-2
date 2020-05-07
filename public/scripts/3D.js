@@ -1,6 +1,7 @@
 let cat,plant,sofa, table;
 let loade = document.createElement('img')
-loade.setAttribute("src", "/resources/loading.gif");
+loade.setAttribute("src", "/resources/double-ring.gif");
+loade.className = 'loading';
 document.body.appendChild(loade);
 function preload() {
   
