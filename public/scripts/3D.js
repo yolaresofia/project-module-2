@@ -1,12 +1,16 @@
 let cat,plant,sofa, table;
-
+let loade = document.createElement('img')
+loade.setAttribute("src", "/resources/loading.gif");
+document.body.appendChild(loade);
 function preload() {
+  
   // Load model with normalise parameter set to true
   cat = loadModel('/resources/cat.obj', true);
-    plant = loadModel('/resources/plant.obj', true);
+    plant = loadModel('/resources/plant2.obj', true);
   sofa = loadModel('/resources/sofa.obj', true);
   table = loadModel('/resources/table.obj', true);
-
+  body = loadModel('/resources/body.obj', true);
+  bottle = loadModel('/resources/bottle.obj', true);
 }
 
 function setup() {
@@ -30,6 +34,12 @@ function draw() {
   rotateY(frameCount * 0.01);
   model(plant)
   
+  translate(120, 200, 83)
+  scale(1.2); // Scaled to make model fit into canvas
+  rotateZ(frameCount * 0.02)
+ rotateX(frameCount * 0.02);
+ rotateY(frameCount * 0.01);
+ model(body)
   
     translate(110, 400, 113)
    scale(0.6); // Scaled to make model fit into canvas
@@ -44,6 +54,19 @@ function draw() {
   rotateX(frameCount * 0.001);
   rotateY(frameCount * 0.002);
   model(table)
+
+
+
+ 
+ 
+   translate(120, 200, 83)
+  scale(1); // Scaled to make model fit into canvas
+  rotateZ(frameCount * 0.01)
+ rotateX(frameCount * 0.01);
+ rotateY(frameCount * 0.01);
+ model(bottle)
+
+
 }
 
 function mousePressed() {

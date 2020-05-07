@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const path = require('path');
 const mongoose = require('mongoose');
-
+const hbs = require('hbs')
 //const Picture = require('./models/picture.js');
 
 const app = express()

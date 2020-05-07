@@ -9,18 +9,19 @@
 
 <body>
   <div class="navbar">
-
     <ul class="menu">
-      <li><a href="/main" class='archive'>HOME</a></li>
+      
+    <li><a href="/main" class='logoHome'>exersAize</a></li>
 
       {{#if isUserLoggedIn}}
       <li><a class="profile" href="/personal/profile">{{currentUserInfo.username}}</a></li>
-      <li><a class="logout" href="/auth/logout">LOGOUT</a></li>
-      <li><a href="/about" class='about'>ABOUT</a></li>
+      <li><a class="chat" href="https://exersaizelive.herokuapp.com/video/">LIVE GYM</a></li>
+      <li><a href="/about" class='about'>about</a></li>
+      <li><a class="logout" href="/auth/logout">logout</a></li>
       {{else}}
-      <li><a href="/auth/signup" class='archive'>SIGNUP</a></li>
-      <li><a href="/auth/login" class='play'>LOGIN</a></li>
-      <li><a href="/about" class='about'>ABOUT</a></li>
+      <li><a href="/auth/signup" class='archive'>signup</a></li>
+      <li><a href="/auth/login" class='play'>login</a></li>
+      <li><a href="/about" class='about'>about</a></li>
       {{/if}}
     </ul>
 
@@ -30,9 +31,8 @@
     {{{body}}}
   </div>
 </body>
-{{!-- <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
+<script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
 <script>
   const swup = new Swup();
-</script> --}}
-
+</script>
 </html>

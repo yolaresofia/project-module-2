@@ -6,7 +6,7 @@ const User = require('../models/user');
 
 
 router.get('/',  (req, res, next)=> {
-  res.render('home');
+  res.render('home', {layout: false});
 });
 router.get('/main',  (req, res, next)=> {
   res.render('main');
