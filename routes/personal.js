@@ -137,7 +137,6 @@ router.get('/routine/:id', (req, res, next) => {
       User.findById(req.session.currentUser._id)
         .populate('routines')
         .then(user => {
-          console.log(user, routine)
           user.routines = user.routines.filter(x=> x._id != routineId )
           res.render('personal/routine', {
             user,

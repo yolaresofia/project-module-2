@@ -85,7 +85,6 @@ const handleSubmit = async (filteredResult) => {
     
 </div>`)
 const exContainer = document.querySelector(".each-ex");
-console.log(eachEx);
 exContainer.appendChild(eachEx.elt);
 
       // document.getElementById('allexers').appendChild(eachEx)

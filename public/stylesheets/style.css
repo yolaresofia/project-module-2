@@ -1,58 +1,64 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Gruppo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Giga&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Gotu&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;900&display=swap');
 
+<<<<<<< HEAD
 html, body{
+=======
+html,
+body {
+>>>>>>> grountish-master
   scroll-behavior: smooth;
-  
+  background-image: url('/resources/bkgrnd.png');
 }
 
 * {
   margin: 0px;
   padding: 0px;
-
   color: #f32b11;
+<<<<<<< HEAD
   background-image: url('/resources/bkgrnd.png');
+=======
+>>>>>>> grountish-master
   font-family: Raleway;
 }
 
 /*navbar FALTA MOBILE FIRST*/
-
-
-.navbar {
-  border-bottom:  #ff5100 1px solid;
-  width: 95%;
-  margin-left: 2.5%;
-  height: 5%;
-
-}
 
 .menu {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   /* transform: rotate(180deg); */
-  height: 5rem;
+  height: 4rem;
   margin: 0 auto;
-  padding-right: 30px;
+  padding-right: 40px;
   z-index: 3 !important;
+  border-bottom: #ff5100 1px solid;
 }
 
- li a {
+li a {
   /* transform: rotate(180deg); */
   font-family: Fira Code;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #f32b11;
   font-weight: bold;
   letter-spacing: 4px;
-  margin: 2rem;
+  margin: 1.5rem;
   background-color: transparent;
   text-align: center;
   width: 15%;
   transition: width 0.8s ease 0.3s, font-size 0.8s ease 0.3s;
+}
+
+.ruido {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.1;
+  max-width: 100vw;
+  max-height: 100vh;
 }
 
 li {
@@ -60,14 +66,12 @@ li {
   font-size: 0.7em;
 }
 
-.section *{
+.section * {
   background: none;
 }
 
-
-
 ul li a:hover {
-  border-bottom: 2px solid  #ff5100;
+  border-bottom: 2px solid #ff5100;
 }
 
 .profile {
@@ -78,10 +82,11 @@ ul li a:hover {
   border-bottom: 2px solid rgb(241, 194, 40);
 }
 
-.logoHome{
+.logoHome {
   justify-self: flex-start;
-  font-family: Manrope;
-  color: #f87117;
+  font-family: Raleway;
+  font-size: 2em;
+  color: #f32b11;
 }
 
 
@@ -104,6 +109,7 @@ ul li a:hover {
   z-index: 21;
 }
 
+
 .threeDp2 {
   font-weight: 900;
   font-family: Raleway;
@@ -121,9 +127,10 @@ ul li a:hover {
   background: none;
 }
 
+
 .ai {
-color: #928e8c;
-background: none;
+  color: #928e8c;
+  background: none;
 }
 
 .ai {
@@ -131,7 +138,7 @@ color: #928e8c;
 background: none;
 }
 
- p{
+p {
   position: relative;
   margin-top: 10px;
   background: none;
@@ -153,7 +160,7 @@ background: none;
   align-items: center;
   justify-content: space-around;
   padding: 0px;
- 
+
 }
 
 .name-use {
@@ -179,6 +186,13 @@ background: none;
   font-family: Fira Code;
 }
 
+<<<<<<< HEAD
+=======
+#knobs {
+  width: 10%;
+}
+
+>>>>>>> grountish-master
 a:link {
   text-decoration: none;
 }
@@ -197,7 +211,7 @@ li {
   transform: scale(0);
   transform: skewX(-45);
   transform-origin: left;
-  background: linear-gradient(302deg, #313f3c, #0d1815, #938686, #38435e);
+  background: linear-gradient(302deg, #ce853b, #b92b00, #e04406, #333333);
   background-size: 800% 800%;
 
   -webkit-animation: grad 3s ease infinite;
@@ -339,22 +353,6 @@ html.is-animating .transition-fade {
 
 /* profile */
 
-.image {
-  width: 400px;
-  margin: 10px;
-  padding: 25px 25px 65px;
-  transition: 2s;
-  box-shadow: 10px 10px 25px rgb(221, 219, 209);
-}
-
-.image:hover {
-  width: 450px;
-  background: rgb(240, 240, 240);
-}
-
-
-
-
 .personalSection {
   display: flex;
   flex-direction: column;
@@ -400,21 +398,17 @@ html.is-animating .transition-fade {
   margin-top: 5rem;
 }
 
-.eachRoutine {
-  margin-top: 3rem;
+.doesntContainer {
   display: flex;
-  flex-direction: row;
-  width: 25%;
   justify-content: center;
-  font-size: 1.5rem;
-  letter-spacing: 2px;
-  border-bottom: 1px solid #f32b11;
-  color: #f32b11;
-  align-items: flex-start;
-  font-size: 1rem;
-  letter-spacing: 2px;
 }
 
+#centered {
+  text-align: center;
+  margin: 40px auto;
+  font-size: 33px;
+  font-family: Fira Code;
+}
 
 .eachRoutine * {
   padding: 3px;
@@ -436,8 +430,8 @@ html.is-animating .transition-fade {
 }
 
 #add-routine-btn {
-  width: 25%;
-  height: 4rem;
+  width: 31%;
+  height: 3rem;
   margin-bottom: 3rem;
   cursor: pointer;
   border: 1px solid #f32b11;
@@ -453,15 +447,15 @@ html.is-animating .transition-fade {
 .add-btn {
   width: 55%;
   margin-top: 1.5rem;
-  margin-left: 50%;
+  margin-left: 30%;
   height: 2.5rem;
   border: 1px solid #f32b11;
 }
 
 
 #routineName {
-  width: 150%;
-  height: 3rem;
+  width: 120%;
+  height: 2rem;
   border: none;
   border-bottom: 1px solid #f32b11;
   float: none;
@@ -478,6 +472,7 @@ html.is-animating .transition-fade {
 .images-profile p {
   color: #f32b11;
 }
+
 /* edit profile */
 
 .personalHeader2 {
@@ -493,6 +488,7 @@ html.is-animating .transition-fade {
   border-right: #f32b11 2px solid;
   align-self: auto;
 }
+
 .personalHeader2 button {
   color: #f32b11;
   margin-top: 1rem;
@@ -501,6 +497,10 @@ html.is-animating .transition-fade {
 .image-input-btn {
   color: #f32b11;
   height: 2rem;
+}
+
+#routineName {
+  background: none;
 }
 
 .personalHeader2 * {
@@ -512,75 +512,10 @@ html.is-animating .transition-fade {
 
 /* Profile End */
 
-
-.box {
-  position: relative;
-}
-
-.image2 {
-  width: 400px;
-  margin: 10px;
-  padding: 10px;
-  transition: 2s;
-  box-shadow: 10px 10px 25px rgb(221, 219, 209);
-  position: relative;
-}
-
-.deleteButton {
-  position: absolute;
-  color: #f93b20;
-  font-family: Fira Code;
-  transition: 0.5s;
-}
-
-.deleteButton:hover {
-  color: white;
-  background-color: #f93b20;
-}
-
-.profile-pic {
-  width: 150px;
-}
-
-#notLog {
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: 3px;
-  font-weight: 500;
-}
-
-.succededDiv {
-  position: absolute;
-  right: 20%;
-  top: 620px;
-  font-family: Fira Code;
-}
-
-.single-piece {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2%;
-}
-
-.created {
-  font-family: Fira Code;
-  font-size: 1em;
-  border-bottom: 1.5px solid black;
-}
-
-.you-have-no {
-  margin-top: 30%;
-  font-family: Fira Code;
-  font-size: 1.2rem;
-  border-bottom: 1.5px solid #fd978a;
-}
-
 /* about */
 
 .about-text {
-  width: 60%;
+  width: 50%;
   display: flex;
   flex-flow: column;
   text-align: center;
@@ -588,13 +523,18 @@ html.is-animating .transition-fade {
 }
 
 .about-text p {
-  font-family: Manrope;
+  font-family: Raleway;
   line-height: 1.6em;
   letter-spacing: 0.6px;
-  font-size: 15px;
+  font-size: 1.2em;
   text-align: center;
-  color: white;
+  color: rgb(241, 194, 40);
   margin-top: 20px;
+}
+
+.titleAbout {
+  margin-top: 20%;
+  font-size: 3em;
 }
 
 .about-text p a {
@@ -608,10 +548,6 @@ html.is-animating .transition-fade {
   z-index: -1;
 }
 
-.titleAbout {
-  
-}
-
 /* -------EXERCCISE CARD CONTAINERS */
 
 .routineHeader {
@@ -623,45 +559,53 @@ html.is-animating .transition-fade {
 }
 
 .routineHeader h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 5rem;
-  color: #333333;
+  color: #f93b20;
 }
 
 .allExerciseCards {
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 40px;
+  margin: 0 auto;
+}
+
+#excercise-select {
+  background: none;
 }
 
 .exercise-card {
   margin-top: 20px;
-  /* margin-left: %; */
   width: 300px;
-  min-height: 700px;
-  border: 2px solid #fd978a;
+  min-height: 500px;
   margin: auto 5px;
-
-  /* border-radius: 5%; */
-  
+  background-image: url('/resources/div2.jpg');
+  background-size: cover;
+  margin-bottom: 2%;
 }
 
 .exercise-card h5 {
-  font-size: 1rem;
-  margin-top: 20px;
+  font-size: 1.1rem;
+  margin-top: 11px;
   letter-spacing: 1.5px;
-  color: #fd978a;
+  color: white;
 }
+
 .exercise-card h1 {
-  color: #fd978a;
+  color: #ee8054;
   font-size: 2rem;
   letter-spacing: 3px;
 }
 
 .exercise-card p {
-  color: #fd978a;
-  font-size: 1rem;
+  color: #f9faf4;
+  font-size: 0.9rem;
+  line-height: 1.3em;
+  padding-top: 10px;
 }
 
 .exercise-card-content {
@@ -676,26 +620,29 @@ html.is-animating .transition-fade {
 }
 
 .ex-move-btn {
-  background-color: rgb(233, 221, 59);
+  background: none;
   float: left;
   margin-left: 1rem;
-  width: 6rem;
+  width: 200px;
   height: 1.5rem;
   border: none;
+  margin-top: 5%;
+  color: #333333;
 }
 
 .ex-move-btn:hover {
-  color: rgb(233, 221, 59);
-  background-color: #333333;
+  color: #f32b11 background-color: #333333;
 }
 
 .ex-delete-btn {
-  background-color: rgb(175, 29, 29);
+  background-color: #f32b11;
   float: right;
   margin-right: 1rem;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.2rem;
+  width: 1.2rem;
   border: none;
+  margin-top: 5%;
+  border-radius: 20%;
 }
 
 .ex-delete-btn:hover {
@@ -709,19 +656,25 @@ html.is-animating .transition-fade {
   justify-content: space-around;
   margin-left: 1rem;
   margin-right: 1rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
-.ex-card-main h2{
-  font-size: 30px;
-  border-bottom: #fd978a solid 2px;
 
+.ex-card-main h2 {
+  font-size: 1.5em;
+  border-bottom: #333333 solid 2px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  color: #333333;
+}
 
+.ex-card-main * {
+  background: none;
 }
 
 /* HOMEPAGE DESC CARDS */
 
-.intro-card{
+.intro-card {
   display: block;
   flex-wrap: wrap;
   margin-top: 3rem;
@@ -731,17 +684,19 @@ html.is-animating .transition-fade {
   /* border-radius: 5%; */
   background-image: url('/resources/div2.jpg');
 }
-.intro-card *{
+
+.intro-card * {
   background: none;
   color: #333333;
 
 }
-.intro-card-content{
+
+.intro-card-content {
   justify-content: space-around;
   margin: 2% 2% 2% 2%;
 }
 
-.instruction-image{
+.instruction-image {
   width: 220px;
 }
 
@@ -761,6 +716,7 @@ html.is-animating .transition-fade {
   color: #333333;
   font-weight: 500;
 }
+
 .intro-card h1 {
   color: #333333;
   font-size: 2rem;
@@ -772,40 +728,54 @@ html.is-animating .transition-fade {
   font-size: 1rem;
 }
 
-.intro-card *{
+.intro-card * {
   font-family: Raleway;
 }
 
+<<<<<<< HEAD
 .instructions-main{
+=======
+.instructions {
+  color: white !important;
+}
+
+.instructions-main {
+>>>>>>> grountish-master
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-bottom: 2 em;
 }
 
+<<<<<<< HEAD
 .instructions{
 color: white !important;
 }
 
 .top{
+=======
+.top {
+>>>>>>> grountish-master
   min-height: 95vh;
   width: 95%;
-  border-bottom: 2px solid #fd978a;
-  ;
+  border-bottom: 2px solid #fd3300;
 }
 
-.bottom{
-  min-height: 100vh;
-  width: 100%;
+.bottom {
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   background-image: url('/resources/fondo.png') ;
+=======
+  background-image: url('/resources/fondo.png');
+>>>>>>> grountish-master
 }
 
-.getReady{
+.getReady {
   display: flex;
   justify-content: center;
- 
   margin: auto auto;
 }
 
@@ -814,35 +784,51 @@ color: white !important;
   height: 60px;
 }
 
-.inputsPhoto, .inputsEx{
+.inputsPhoto,
+.inputsEx {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 33%;
   margin: 50px auto;
   text-align: center;
-
 }
-.inputsPhoto *{
+
+.inputsPhoto * {
   margin: 10px;
-  padding: 10px;
-  
+  padding-left: 27%;
 }
 
-.eachRoutine{
+.title-features1 {
+  text-align: center;
+  margin-top: 10%;
+}
+
+.title-features2 {
+  text-align: center;
+  margin-top: 7%;
+}
+
+input[type='file'] {
+  color: transparent;
+}
+
+.eachRoutine {
   margin-top: 30px;
   display: flex;
   flex-direction: row;
-  width: 200px;
-  justify-content: space-around;
-}
-
-.eachRoutine *{
-  padding: 3px;
+  width: 325px;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #f32b11;
+  color: #f32b11;
+  align-items: flex-start;
+  font-size: 1rem;
+  letter-spacing: 2px;
 }
 
 
 .loading {
-  
   width: 120px;
   height: 120px;
   background: linear-gradient(-45deg, #ED1C24, #FCEE21);
@@ -858,41 +844,68 @@ color: white !important;
     border-radius: 5% 5% 5% 5%;
     transform: translate(-50%, -50%) rotate(0deg)
   }
+
   12.5% {
     border-radius: 50% 5% 5% 5%;
     transform: translate(-50%, -50%) rotate(45deg);
   }
+
   25% {
     border-radius: 50% 50% 5% 5%;
     transform: translate(-50%, -50%) rotate(90deg);
   }
+
   37.5% {
     border-radius: 50% 50% 50% 5%;
     transform: translate(-50%, -50%) rotate(135deg);
   }
+
   50% {
     border-radius: 50% 50% 50% 50%;
     transform: translate(-50%, -50%) rotate(180deg);
   }
+
   62.5% {
     border-radius: 5% 50% 50% 50%;
     transform: translate(-50%, -50%) rotate(225deg);
   }
+
   75% {
     border-radius: 5% 5% 50% 50%;
     transform: translate(-50%, -50%) rotate(270deg);
   }
+
   87.5% {
     border-radius: 5% 5% 5% 50%;
     transform: translate(-50%, -50%) rotate(315deg);
   }
+
   100% {
     border-radius: 5% 5% 5% 5%;
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
-.each-ex{
+.each-ex {
   display: flex;
   flex-direction: row;
+  margin-bottom: 40px;
+  justify-content: space-around;
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ec1515;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fa9108;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fcee21;
 }

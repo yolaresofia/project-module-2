@@ -6,8 +6,13 @@
                     <div class="intro-card-main">
                         <img class="instruction-image" src="/resources/tress.png" alt="">
                         <div>
+<<<<<<< HEAD
                         <h1>TAKE</h1>
                         <h5 class="instructions">and upload a picture of elements you find in your house.</h5>
+=======
+                            <h1>TAKE</h1>
+                            <h5 class="instructions">and upload a picture of elements you find in your house</h5>
+>>>>>>> grountish-master
                         </div>
                     </div>
                 </div>
@@ -17,9 +22,9 @@
                     <div class="intro-card-main">
                         <img class="instruction-image" src="/resources/dos.png" alt="">
                         <div>
-                        <h1>SELECT</h1>
-                        <h5 class="instructions">a type of exercise you feel like doing</h5>
-                        </div>    
+                            <h1>SELECT</h1>
+                            <h5 class="instructions">a type of exercise you feel like doing</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -28,8 +33,8 @@
                     <div class="intro-card-main">
                         <img class="instruction-image" src="/resources/unoo.png" alt="">
                         <div>
-                        <h1>ADD</h1>
-                        <h5 class="instructions">your exercise to your amazing routine</h5>
+                            <h1>ADD</h1>
+                            <h5 class="instructions">your exercise to your amazing routine</h5>
                         </div>
                     </div>
                 </div>
@@ -40,27 +45,32 @@
         {{#if isUserLoggedIn}}
         <div class="getReady  ">
 
-            <button onclick="myFunction()" class="b ph4 pv3 mv2 input-reset ba b--white red grow pointer f5"
+            <button onclick="myFunction()" class="b ph4 pv3 mv2 input-reset ba red grow pointer f5 bg-transparent"
                 type="submit">Get ready to get SWEATY!</button>
         </div>
         {{!-- 
         <div class="mt3"></div> --}}
 
         {{else}}
-        <p id="notLog"> <a class="red bb" href="/auth/login">Log In</a> or <a class="red bb" href="/auth/login">Sign Up</a> to start exersAIze!</p>
+        <p id="notLog"> <a class="red bb" href="/auth/login">Log In</a> or <a class="red bb" href="/auth/login">Sign
+                Up</a> to start exersAIze!</p>
         {{/if}}
     </section>
 
     {{#if isUserLoggedIn}}
     <section class="bottom" id="bottom">
-
+        <h1 class="title-features1">Upload a photo !</h1>
         <div class="inputsPhoto">
+<<<<<<< HEAD
             <h1>Upload a photo !</h1>
             <input type="file" id="img" name="photo" style="color:transparent; width:100%;" placeholder="">
 
+=======
+            <input type="file" id="img" name="photo" size="60" placeholder="">
+>>>>>>> grountish-master
         </div>
+        <h1 class="title-features2">Choose a type of Exercise</h1>
         <div class="inputsEx">
-            <h1>Choose a type of Exercise</h1>
             <label for="type-select"></label>
             <select name="exercises" id="excercise-select">
                 <option value="">--Please choose an option--</option>
@@ -69,11 +79,11 @@
                 <option value="Arms">Arms</option>
             </select>
         </div>
-    
-    {{/if}}
-<div class="each-ex">
-    
-</div>
+
+        {{/if}}
+        <div class="each-ex">
+
+        </div>
     </section>
 
 </main>
