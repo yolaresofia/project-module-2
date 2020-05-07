@@ -14,13 +14,17 @@
     <li class="logoHome"><a href="/main" class='logoHome'>exersAize</a></li>
 
       {{#if isUserLoggedIn}}
+
       <li><a class="profile" href="/personal/profile">{{currentUserInfo.username}}</a></li>
+      <li><a class="chat" href="/community/gym">LIVE GYM</a></li>
       <li><a class="logout" href="/auth/logout">LOGOUT</a></li>
       <li><a href="/about" class='about'>ABOUT</a></li>
+
       {{else}}
       <li><a href="/auth/signup" class='archive'>SIGNUP</a></li>
       <li><a href="/auth/login" class='play'>LOGIN</a></li>
       <li><a href="/about" class='about'>ABOUT</a></li>
+
       {{/if}}
     </ul>
 

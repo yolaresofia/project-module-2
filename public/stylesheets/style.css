@@ -127,11 +127,6 @@ color: #928e8c;
 background: none;
 }
 
-.ai {
-color: #928e8c;
-background: none;
-}
-
  p{
   position: relative;
   margin-top: 10px;
@@ -180,13 +175,6 @@ background: none;
   font-family: Fira Code;
 }
 
-a:link {
-  text-decoration: none;
-}
-
-li {
-  list-style-type: none;
-}
 
 .overlay {
   position: absolute;
@@ -198,9 +186,9 @@ li {
   transform: scale(0);
   transform: skewX(-45);
   transform-origin: left;
-  background: linear-gradient(302deg, #313f3c, #0d1815, #938686, #38435e);
+  background: linear-gradient(302deg, #ce853b, #b92b00, #e04406, #333333);
   background-size: 800% 800%;
-
+  
   -webkit-animation: grad 3s ease infinite;
   -moz-animation: grad 3s ease infinite;
   -o-animation: grad 3s ease infinite;
@@ -211,11 +199,11 @@ li {
   0% {
     background-position: 0% 5%;
   }
-
+  
   50% {
     background-position: 100% 96%;
   }
-
+  
   100% {
     background-position: 0% 5%;
   }
@@ -225,11 +213,11 @@ li {
   0% {
     background-position: 0% 5%;
   }
-
+  
   50% {
     background-position: 100% 96%;
   }
-
+  
   100% {
     background-position: 0% 5%;
   }
@@ -239,11 +227,11 @@ li {
   0% {
     background-position: 0% 5%;
   }
-
+  
   50% {
     background-position: 100% 96%;
   }
-
+  
   100% {
     background-position: 0% 5%;
   }
@@ -253,11 +241,11 @@ li {
   0% {
     background-position: 0% 5%;
   }
-
+  
   50% {
     background-position: 100% 96%;
   }
-
+  
   100% {
     background-position: 0% 5%;
   }
@@ -292,7 +280,7 @@ html.is-animating .transition-fade {
     transform: scale(1.02);
     opacity: 0;
   }
-
+  
   to {
     transform: scale(1);
     opacity: 1;
@@ -307,7 +295,7 @@ html.is-animating .transition-fade {
   from {
     opacity: 0;
   }
-
+  
   to {
     opacity: 1;
   }
@@ -406,7 +394,7 @@ html.is-animating .transition-fade {
   display: flex;
   flex-direction: row;
   width: 25%;
-  justify-content: center;
+  justify-content: space-between;
   font-size: 1.5rem;
   letter-spacing: 2px;
   border-bottom: 1px solid #f32b11;
@@ -437,12 +425,12 @@ html.is-animating .transition-fade {
 }
 
 #add-routine-btn {
-  width: 25%;
-  height: 4rem;
+  width: 31%;
+  height: 3rem;
   margin-bottom: 3rem;
   cursor: pointer;
   border: 1px solid #f32b11;
-  color: #f32b11;
+  color: #f34c2e;
 }
 
 #newRoutine {
@@ -454,15 +442,15 @@ html.is-animating .transition-fade {
 .add-btn {
   width: 55%;
   margin-top: 1.5rem;
-  margin-left: 50%;
+  margin-left: 30%;
   height: 2.5rem;
   border: 1px solid #f32b11;
 }
 
 
 #routineName {
-  width: 150%;
-  height: 3rem;
+  width: 120%;
+  height: 2rem;
   border: none;
   border-bottom: 1px solid #f32b11;
   float: none;
@@ -578,6 +566,18 @@ html.is-animating .transition-fade {
   border-bottom: 1.5px solid #fd978a;
 }
 
+.doesntContainer{
+  display: flex;
+  justify-content: center;
+}
+#centered{
+text-align: center;
+margin: 40px auto;
+font-size: 33px;
+
+font-family: Fira Code;
+}
+
 /* about */
 
 .about-text {
@@ -624,9 +624,9 @@ html.is-animating .transition-fade {
 }
 
 .routineHeader h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 5rem;
-  color: #333333;
+  color: #f93b20;
 }
 
 .allExerciseCards {
@@ -634,6 +634,7 @@ html.is-animating .transition-fade {
   flex-flow: row;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 }
 
 .exercise-card {
@@ -643,7 +644,7 @@ html.is-animating .transition-fade {
   min-height: 700px;
   border: 2px solid #fd978a;
   margin: auto 5px;
-
+  
   /* border-radius: 5%; */
   
 }
@@ -716,8 +717,8 @@ html.is-animating .transition-fade {
 .ex-card-main h2{
   font-size: 30px;
   border-bottom: #fd978a solid 2px;
-
-
+  
+  
 }
 
 /* HOMEPAGE DESC CARDS */
@@ -735,7 +736,7 @@ html.is-animating .transition-fade {
 .intro-card *{
   background: none;
   color: #333333;
-
+  
 }
 .intro-card-content{
   justify-content: space-around;
@@ -785,7 +786,7 @@ html.is-animating .transition-fade {
 }
 
 .instructions{
-color: white !important;
+  color: white !important;
 }
 
 .top{
@@ -805,7 +806,7 @@ color: white !important;
 .getReady{
   display: flex;
   justify-content: center;
- 
+  
   margin: auto auto;
 }
 
@@ -820,7 +821,7 @@ color: white !important;
   width: 50%;
   margin: 50px auto;
   text-align: center;
-
+  
 }
 .inputsPhoto *{
   margin: 10px;
@@ -832,8 +833,8 @@ color: white !important;
   margin-top: 30px;
   display: flex;
   flex-direction: row;
-  width: 200px;
-  justify-content: space-around;
+  width: 325px;
+  justify-content: space-between;
 }
 
 .eachRoutine *{
@@ -895,4 +896,55 @@ color: white !important;
 .each-ex{
   display: flex;
   flex-direction: row;
+}
+
+a:link {
+text-decoration: none;
+}
+        
+li {
+list-style-type: none;
+}
+
+.gym-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-evenly;
+}
+
+.gym-btn {
+  width: 12%;
+  height: 3.5rem;
+  width: 12.5%;
+  height: 3.5rem;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  border: 2px solid #cfcfcf;
+  margin-bottom: 4rem;
+}
+
+.gym-btn:hover {
+  background: #fd1d1d;
+  color: rgb(223, 219, 219);
+  width: 15%;
+  height: 4rem;
+}
+
+.bottom-test{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-evenly;
+}
+.chat-frame{
+  width: 100vw;
+  height: 100vh;
 }

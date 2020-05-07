@@ -17,7 +17,7 @@ const MongoStore = require('connect-mongo')(session);
 const authRouter = require('./routes/auth');
 const indexRouter = require('./routes/index');
 const personalRouter = require('./routes/personal')
-
+const communityRouter = require('./routes/community')
 
 
 mongoose
@@ -104,6 +104,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/personal', personalRouter);
+app.use('/community', communityRouter);
 
 
 // catch 404 and forward to error handler

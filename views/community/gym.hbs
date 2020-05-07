@@ -1,0 +1,20 @@
+<div class="gym-container">
+    <h1>{{currentUserInfo.username}} Join our live gym thruogh the video chat.</h1>
+    <button onclick="scollBox()" type="submit" class="gym-btn">Click to Join</button>
+</div>
+
+<div id="bottom-test">
+    <iframe  class="chat-frame" src="https://damelotzuzatz.herokuapp.com/video/"
+        frameborder="0"></iframe>
+</div>
+<script>
+
+    function scollBox() {
+        console.log('ciao')
+        let gymScroll = document.getElementById("bottom-test");
+        gymScroll.scrollIntoView();
+    };
+
+</script>
+
+<script src="/scripts/gym.js"></script>
