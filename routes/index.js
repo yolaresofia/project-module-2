@@ -37,17 +37,6 @@ router.post('/main',  (req, res, next) =>{
 });
 
 
-router.get('/profile/routine/:id', (req, res, next) => {
-  
-
-
-
-})
-
-
-
-
-
 router.get('/connect/:id', (req, res, next) => {
     Picture.findById(req.params.id)
     .populate('user', 'name')
