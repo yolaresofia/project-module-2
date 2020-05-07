@@ -2,12 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Giga&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;900&display=swap');
 
-<<<<<<< HEAD
-html, body{
-=======
 html,
 body {
->>>>>>> grountish-master
   scroll-behavior: smooth;
   background-image: url('/resources/bkgrnd.png');
 }
@@ -16,10 +12,6 @@ body {
   margin: 0px;
   padding: 0px;
   color: #f32b11;
-<<<<<<< HEAD
-  background-image: url('/resources/bkgrnd.png');
-=======
->>>>>>> grountish-master
   font-family: Raleway;
 }
 
@@ -186,13 +178,10 @@ p {
   font-family: Fira Code;
 }
 
-<<<<<<< HEAD
-=======
 #knobs {
   width: 10%;
 }
 
->>>>>>> grountish-master
 a:link {
   text-decoration: none;
 }
@@ -732,30 +721,18 @@ html.is-animating .transition-fade {
   font-family: Raleway;
 }
 
-<<<<<<< HEAD
-.instructions-main{
-=======
 .instructions {
   color: white !important;
 }
 
 .instructions-main {
->>>>>>> grountish-master
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-bottom: 2 em;
 }
 
-<<<<<<< HEAD
-.instructions{
-color: white !important;
-}
-
-.top{
-=======
 .top {
->>>>>>> grountish-master
   min-height: 95vh;
   width: 95%;
   border-bottom: 2px solid #fd3300;
@@ -766,11 +743,7 @@ color: white !important;
   width: 100vw;
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  background-image: url('/resources/fondo.png') ;
-=======
   background-image: url('/resources/fondo.png');
->>>>>>> grountish-master
 }
 
 .getReady {
