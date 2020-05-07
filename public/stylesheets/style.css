@@ -574,7 +574,6 @@ html.is-animating .transition-fade {
 text-align: center;
 margin: 40px auto;
 font-size: 33px;
-
 font-family: Fira Code;
 }
 
@@ -904,47 +903,4 @@ text-decoration: none;
         
 li {
 list-style-type: none;
-}
-
-.gym-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
-  align-items: center;
-  justify-items: center;
-  justify-content: space-evenly;
-}
-
-.gym-btn {
-  width: 12%;
-  height: 3.5rem;
-  width: 12.5%;
-  height: 3.5rem;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  font-weight: bold;
-  border: 2px solid #cfcfcf;
-  margin-bottom: 4rem;
-}
-
-.gym-btn:hover {
-  background: #fd1d1d;
-  color: rgb(223, 219, 219);
-  width: 15%;
-  height: 4rem;
-}
-
-.bottom-test{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
-  align-items: center;
-  justify-items: center;
-  justify-content: space-evenly;
-}
-.chat-frame{
-  width: 100vw;
-  height: 100vh;
 }
