@@ -11,7 +11,7 @@
         <div class="exercise-card-content">
           <div class="buttons-exer">
 
-            <select name="" id="" class="ex-move-button">
+            <select name="" id="" class="ex-move-btn">
               <option class="ex-move-id" value="">Move to</option>
 
               {{#each ../user.routines}}
@@ -23,7 +23,9 @@
           </div>
           <div class="ex-card-main">
             <h2>{{this.name}}</h2>
+            <h5>{{this.element}}</h5>
             <h5>{{this.intensity}}</h5>
+            <h5>{{this.type}}</h5>
             <p>{{this.description}}</p>
           </div>
         </div>
