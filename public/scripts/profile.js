@@ -25,7 +25,6 @@ addBtn.addEventListener('click', async () => {
         const response = await fetch(`/personal/addroutine`, options)
         const json = await response.json()
         const routineFromDb = json.routine
-        console.log(routineFromDb)
         const newRoutineDiv = document.createElement('div')
         newRoutineDiv.innerHTML = `<div class="eachRoutine">
         <a href="/personal/routine/${routineFromDb._id}">${routineFromDb.name}</a>

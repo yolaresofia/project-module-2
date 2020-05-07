@@ -41,7 +41,6 @@
     button.addEventListener('click', e => {
       const exerciseId = e.target.parentElement.parentElement.parentElement.dataset.exercise;
       const routineId = routineSingle.dataset.routine;
-      console.log(routineId, exerciseId)
       fetch(`/personal/${routineId}/exercise/${exerciseId}/delete`)
         .then((res) => {
           e.target.parentElement.parentElement.parentElement.remove()
@@ -58,9 +57,7 @@
     selected.addEventListener('change', (e) => {
       const exerciseId = e.target.parentElement.parentElement.parentElement.dataset.exercise;
       const routineId = routineSingle.dataset.routine;
-      console.log(exerciseId, routineId)
       const targetRoutineId = e.target.value
-      console.log(targetRoutineId, 'holiiiiiis')
       fetch(`/personal/${routineId}/move/${exerciseId}/to/${targetRoutineId}`)
         .then((res) => {
           e.target.parentElement.parentElement.parentElement.remove()

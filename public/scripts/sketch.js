@@ -85,7 +85,6 @@ const handleSubmit = async (filteredResult) => {
     
 </div>`)
 const exContainer = document.querySelector(".each-ex");
-console.log(eachEx);
 exContainer.appendChild(eachEx.elt);
 
       // document.getElementById('allexers').appendChild(eachEx)
@@ -101,7 +100,6 @@ exContainer.appendChild(eachEx.elt);
       fetch(e.target.value)
         .then(response => {
           e.target.value = ''
-          console.log('success')
           console.log(response.json())
         })
     })

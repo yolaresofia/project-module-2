@@ -1,18 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Gruppo&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Giga&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Gotu&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;900&display=swap');
 html, body{
   scroll-behavior: smooth;
-  
 }
 
 * {
   margin: 0px;
   padding: 0px;
-
   color: #f32b11;
   background-color: #222222;
   background-image: url('/resources/bkgrnd.png');
@@ -21,13 +16,11 @@ html, body{
 
 /*navbar FALTA MOBILE FIRST*/
 
-
 .navbar {
   border-bottom:  #ff5100 1px solid;
   width: 95%;
   margin-left: 2.5%;
   height: 5%;
-
 }
 
 .menu {
@@ -55,6 +48,14 @@ html, body{
   transition: width 0.8s ease 0.3s, font-size 0.8s ease 0.3s;
 }
 
+.ruido{
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.1;
+}
+
 li {
   z-index: 3;
   font-size: 0.7em;
@@ -63,8 +64,6 @@ li {
 .section *{
   background: none;
 }
-
-
 
 ul li a:hover {
   border-bottom: 2px solid  #ff5100;
@@ -80,7 +79,7 @@ ul li a:hover {
 
 .logoHome{
   justify-self: flex-start;
-  font-family: Manrope;
+  font-family: Raleway;
   color: #f87117;
 }
 
@@ -104,6 +103,7 @@ ul li a:hover {
   z-index: 21;
 }
 
+
 .threeDp2 {
   font-weight: 900;
   font-family: Raleway;
@@ -121,13 +121,14 @@ ul li a:hover {
   background: none;
 }
 
+
 .ai {
 color: #928e8c;
 background: none;
 }
 
 
- p{
+p{
   position: relative;
   margin-top: 10px;
   background: none;
@@ -179,74 +180,6 @@ background: none;
   width: 10%;
 }
 
-/*gallery*/
-
-.container-title-p-connect {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-flow: row;
-}
-
-.text-gallery {
-  margin-top: 70%;
-  margin-left: 15%;
-  font-family: Manrope;
-  font-weight: 400;
-  font-size: 1.1em;
-  width: 80%;
-  text-align: right;
-}
-
-.square {
-  height: 500px;
-  width: 400px;
-  border: 3px solid black;
-  margin-top: 7%;
-  margin-left: -10%;
-}
-
-.title-archive {
-  color: black;
-  margin-top: 17%;
-  margin-left: 15%;
-  font-size: 6em;
-  font-family: Manrope;
-  transition: 1s;
-}
-
-.orangeBackground {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-  height: 100vh;
-}
-
-.imagesInGallery {
-  width: 290px;
-  margin: 10px;
-  padding: 25px 25px 65px;
-  transition: 2s;
-  box-shadow: 1px 1px 10px rgb(240, 235, 227);
-}
-
-.imagesInGallery:hover {
-  width: 310px;
-  background: rgb(240, 235, 235);
-}
-
-.title-archive:hover {
-  color: purple;
-}
-
-.container-archive {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 a:link {
   text-decoration: none;
 }
@@ -255,7 +188,7 @@ li {
   list-style-type: none;
 }
 
-.overlay {
+/* .overlay {
   position: absolute;
   width: 100%;
   height: 1000%;
@@ -272,8 +205,8 @@ li {
   -moz-animation: grad 3s ease infinite;
   -o-animation: grad 3s ease infinite;
   animation: grad 3s ease infinite;
-}
-
+} */
+/* 
 @-webkit-keyframes grad {
   0% {
     background-position: 0% 5%;
@@ -378,7 +311,7 @@ html.is-animating .transition-fade {
   to {
     opacity: 1;
   }
-}
+} */
 
 /* log-in-sign-up */
 
@@ -406,22 +339,6 @@ html.is-animating .transition-fade {
 }
 
 /* profile */
-
-.image {
-  width: 400px;
-  margin: 10px;
-  padding: 25px 25px 65px;
-  transition: 2s;
-  box-shadow: 10px 10px 25px rgb(221, 219, 209);
-}
-
-.image:hover {
-  width: 450px;
-  background: rgb(240, 240, 240);
-}
-
-
-
 
 .personalSection {
   display: flex;
@@ -580,71 +497,6 @@ html.is-animating .transition-fade {
 
 /* Profile End */
 
-
-.box {
-  position: relative;
-}
-
-.image2 {
-  width: 400px;
-  margin: 10px;
-  padding: 10px;
-  transition: 2s;
-  box-shadow: 10px 10px 25px rgb(221, 219, 209);
-  position: relative;
-}
-
-.deleteButton {
-  position: absolute;
-  color: #f93b20;
-  font-family: Fira Code;
-  transition: 0.5s;
-}
-
-.deleteButton:hover {
-  color: white;
-  background-color: #f93b20;
-}
-
-.profile-pic {
-  width: 150px;
-}
-
-#notLog {
-  font-size: 20px;
-  text-align: center;
-  letter-spacing: 3px;
-  font-weight: 500;
-}
-
-.succededDiv {
-  position: absolute;
-  right: 20%;
-  top: 620px;
-  font-family: Fira Code;
-}
-
-.single-piece {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2%;
-}
-
-.created {
-  font-family: Fira Code;
-  font-size: 1em;
-  border-bottom: 1.5px solid black;
-}
-
-.you-have-no {
-  margin-top: 30%;
-  font-family: Fira Code;
-  font-size: 1.2rem;
-  border-bottom: 1.5px solid #fd978a;
-}
-
 /* about */
 
 .about-text {
@@ -676,10 +528,6 @@ html.is-animating .transition-fade {
   z-index: -1;
 }
 
-.titleAbout {
-  
-}
-
 /* -------EXERCCISE CARD CONTAINERS */
 
 .routineHeader {
@@ -707,28 +555,27 @@ html.is-animating .transition-fade {
   margin-top: 20px;
   /* margin-left: %; */
   width: 300px;
-  min-height: 700px;
-  border: 2px solid #fd978a;
+  min-height: 620px;
+  border: 2px solid #f93b20;
   margin: auto 5px;
-
   /* border-radius: 5%; */
-  
 }
 
 .exercise-card h5 {
   font-size: 1rem;
   margin-top: 20px;
   letter-spacing: 1.5px;
-  color: #fd978a;
+  color: #ee8054;
+
 }
 .exercise-card h1 {
-  color: #fd978a;
+  color: #ee8054;
   font-size: 2rem;
   letter-spacing: 3px;
 }
 
 .exercise-card p {
-  color: #fd978a;
+  color: #ee8054;
   font-size: 1rem;
 }
 
@@ -747,7 +594,7 @@ html.is-animating .transition-fade {
   background-color: rgb(233, 221, 59);
   float: left;
   margin-left: 1rem;
-  width: 6rem;
+  width: 200px;
   height: 1.5rem;
   border: none;
 }
@@ -777,14 +624,12 @@ html.is-animating .transition-fade {
   justify-content: space-around;
   margin-left: 1rem;
   margin-right: 1rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .ex-card-main h2{
   font-size: 30px;
-  border-bottom: #fd978a solid 2px;
-
-
+  border-bottom: #fd3300 solid 2px;
 }
 
 /* HOMEPAGE DESC CARDS */
@@ -850,11 +695,10 @@ html.is-animating .transition-fade {
   margin-bottom: 2 em;
 }
 
-.top{
+.top {
   min-height: 95vh;
   width: 95%;
-  border-bottom: 2px solid #fd978a;
-  ;
+  border-bottom: 2px solid  #fd3300;
 }
 
 .bottom{
@@ -867,7 +711,6 @@ html.is-animating .transition-fade {
 .getReady{
   display: flex;
   justify-content: center;
- 
   margin: auto auto;
 }
 
@@ -882,8 +725,8 @@ html.is-animating .transition-fade {
   width: 50%;
   margin: 50px auto;
   text-align: center;
-
 }
+
 .inputsPhoto *{
   margin: 10px;
   padding: 10px;
@@ -902,9 +745,7 @@ html.is-animating .transition-fade {
   padding: 3px;
 }
 
-
 .loading {
-  
   width: 120px;
   height: 120px;
   background: linear-gradient(-45deg, #ED1C24, #FCEE21);
@@ -957,4 +798,6 @@ html.is-animating .transition-fade {
 .each-ex{
   display: flex;
   flex-direction: row;
+  border-bottom: 2px solid  #fd3300;
+  margin-bottom: 40px;
 }
