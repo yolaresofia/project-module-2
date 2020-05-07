@@ -2,7 +2,6 @@
   <section class="personalSection">
     <header class="routineHeader" id="routineHeader">
       <h1 class="username-exercise">{{routine.name}}</h1>
-
     </header>
     <div class="allExerciseCards" data-routine='{{routine._id}}'>
 
@@ -11,7 +10,7 @@
         <div class="exercise-card-content">
           <div class="buttons-exer">
 
-            <select name="" id="" class="ex-move-btn">
+            <select name="" id="" class="ex-move-button">
               <option class="ex-move-id" value="">Move to</option>
 
               {{#each ../user.routines}}
@@ -23,9 +22,7 @@
           </div>
           <div class="ex-card-main">
             <h2>{{this.name}}</h2>
-            <h5>{{this.element}}</h5>
             <h5>{{this.intensity}}</h5>
-            <h5>{{this.type}}</h5>
             <p>{{this.description}}</p>
           </div>
         </div>
@@ -43,6 +40,7 @@
     button.addEventListener('click', e => {
       const exerciseId = e.target.parentElement.parentElement.parentElement.dataset.exercise;
       const routineId = routineSingle.dataset.routine;
+      console.log(routineId, exerciseId)
       fetch(`/personal/${routineId}/exercise/${exerciseId}/delete`)
         .then((res) => {
           e.target.parentElement.parentElement.parentElement.remove()
@@ -59,7 +57,9 @@
     selected.addEventListener('change', (e) => {
       const exerciseId = e.target.parentElement.parentElement.parentElement.dataset.exercise;
       const routineId = routineSingle.dataset.routine;
+      console.log(exerciseId, routineId)
       const targetRoutineId = e.target.value
+      console.log(targetRoutineId, 'holiiiiiis')
       fetch(`/personal/${routineId}/move/${exerciseId}/to/${targetRoutineId}`)
         .then((res) => {
           e.target.parentElement.parentElement.parentElement.remove()

@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lexend+Giga&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;900&display=swap');
-html, body{
+
+html,
+body {
   scroll-behavior: smooth;
   background-image: url('/resources/bkgrnd.png');
 }
@@ -24,10 +26,10 @@ html, body{
   margin: 0 auto;
   padding-right: 40px;
   z-index: 3 !important;
-  border-bottom:  #ff5100 1px solid;
+  border-bottom: #ff5100 1px solid;
 }
 
- li a {
+li a {
   /* transform: rotate(180deg); */
   font-family: Fira Code;
   font-size: 0.9rem;
@@ -41,12 +43,14 @@ html, body{
   transition: width 0.8s ease 0.3s, font-size 0.8s ease 0.3s;
 }
 
-.ruido{
+.ruido {
   z-index: 100;
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0.1;
+  max-width: 100vw;
+  max-height: 100vh;
 }
 
 li {
@@ -54,12 +58,12 @@ li {
   font-size: 0.7em;
 }
 
-.section *{
+.section * {
   background: none;
 }
 
 ul li a:hover {
-  border-bottom: 2px solid  #ff5100;
+  border-bottom: 2px solid #ff5100;
 }
 
 .profile {
@@ -70,10 +74,10 @@ ul li a:hover {
   border-bottom: 2px solid rgb(241, 194, 40);
 }
 
-.logoHome{
+.logoHome {
   justify-self: flex-start;
   font-family: Raleway;
-  font-size: 2em ;
+  font-size: 2em;
   color: #f32b11;
 }
 
@@ -117,12 +121,12 @@ ul li a:hover {
 
 
 .ai {
-color: #928e8c;
-background: none;
+  color: #928e8c;
+  background: none;
 }
 
 
-p{
+p {
   position: relative;
   margin-top: 10px;
   background: none;
@@ -144,7 +148,7 @@ p{
   align-items: center;
   justify-content: space-around;
   padding: 0px;
- 
+
 }
 
 .name-use {
@@ -192,7 +196,7 @@ li {
   transform: scale(0);
   transform: skewX(-45);
   transform-origin: left;
-  background: linear-gradient(302deg, #313f3c, #0d1815, #938686, #38435e);
+  background: linear-gradient(302deg, #ce853b, #b92b00, #e04406, #333333);
   background-size: 800% 800%;
 
   -webkit-animation: grad 3s ease infinite;
@@ -379,6 +383,18 @@ html.is-animating .transition-fade {
   margin-top: 5rem;
 }
 
+.doesntContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#centered {
+  text-align: center;
+  margin: 40px auto;
+  font-size: 33px;
+  font-family: Fira Code;
+}
+
 .eachRoutine * {
   padding: 3px;
   color: #f32b11;
@@ -441,6 +457,7 @@ html.is-animating .transition-fade {
 .images-profile p {
   color: #f32b11;
 }
+
 /* edit profile */
 
 .personalHeader2 {
@@ -456,6 +473,7 @@ html.is-animating .transition-fade {
   border-right: #f32b11 2px solid;
   align-self: auto;
 }
+
 .personalHeader2 button {
   color: #f32b11;
   margin-top: 1rem;
@@ -464,6 +482,10 @@ html.is-animating .transition-fade {
 .image-input-btn {
   color: #f32b11;
   height: 2rem;
+}
+
+#routineName {
+  background: none;
 }
 
 .personalHeader2 * {
@@ -530,6 +552,7 @@ html.is-animating .transition-fade {
 .allExerciseCards {
   display: flex;
   flex-flow: row;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   padding-bottom: 40px;
@@ -547,6 +570,7 @@ html.is-animating .transition-fade {
   margin: auto 5px;
   background-image: url('/resources/div2.jpg');
   background-size: cover;
+  margin-bottom: 2%;
 }
 
 .exercise-card h5 {
@@ -592,8 +616,7 @@ html.is-animating .transition-fade {
 }
 
 .ex-move-btn:hover {
-  color: #f32b11
-  background-color: #333333;
+  color: #f32b11 background-color: #333333;
 }
 
 .ex-delete-btn {
@@ -633,9 +656,10 @@ html.is-animating .transition-fade {
 .ex-card-main * {
   background: none;
 }
+
 /* HOMEPAGE DESC CARDS */
 
-.intro-card{
+.intro-card {
   display: block;
   flex-wrap: wrap;
   margin-top: 3rem;
@@ -645,17 +669,19 @@ html.is-animating .transition-fade {
   /* border-radius: 5%; */
   background-image: url('/resources/div2.jpg');
 }
-.intro-card *{
+
+.intro-card * {
   background: none;
   color: #333333;
 
 }
-.intro-card-content{
+
+.intro-card-content {
   justify-content: space-around;
   margin: 2% 2% 2% 2%;
 }
 
-.instruction-image{
+.instruction-image {
   width: 220px;
 }
 
@@ -675,6 +701,7 @@ html.is-animating .transition-fade {
   color: #333333;
   font-weight: 500;
 }
+
 .intro-card h1 {
   color: #333333;
   font-size: 2rem;
@@ -686,7 +713,7 @@ html.is-animating .transition-fade {
   font-size: 1rem;
 }
 
-.intro-card *{
+.intro-card * {
   font-family: Raleway;
 }
 
@@ -694,7 +721,7 @@ html.is-animating .transition-fade {
   color: white !important;
 }
 
-.instructions-main{
+.instructions-main {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -704,17 +731,18 @@ html.is-animating .transition-fade {
 .top {
   min-height: 95vh;
   width: 95%;
-  border-bottom: 2px solid  #fd3300;
+  border-bottom: 2px solid #fd3300;
 }
 
-.bottom{
+.bottom {
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
+  background-image: url('/resources/fondo.png');
 }
 
-.getReady{
+.getReady {
   display: flex;
   justify-content: center;
   margin: auto auto;
@@ -725,7 +753,8 @@ html.is-animating .transition-fade {
   height: 60px;
 }
 
-.inputsPhoto, .inputsEx{
+.inputsPhoto,
+.inputsEx {
   display: flex;
   flex-direction: column;
   width: 33%;
@@ -733,7 +762,7 @@ html.is-animating .transition-fade {
   text-align: center;
 }
 
-.inputsPhoto *{
+.inputsPhoto * {
   margin: 10px;
   padding-left: 27%;
 }
@@ -752,7 +781,7 @@ input[type='file'] {
   color: transparent;
 }
 
-.eachRoutine{
+.eachRoutine {
   margin-top: 30px;
   display: flex;
   flex-direction: row;
@@ -784,34 +813,42 @@ input[type='file'] {
     border-radius: 5% 5% 5% 5%;
     transform: translate(-50%, -50%) rotate(0deg)
   }
+
   12.5% {
     border-radius: 50% 5% 5% 5%;
     transform: translate(-50%, -50%) rotate(45deg);
   }
+
   25% {
     border-radius: 50% 50% 5% 5%;
     transform: translate(-50%, -50%) rotate(90deg);
   }
+
   37.5% {
     border-radius: 50% 50% 50% 5%;
     transform: translate(-50%, -50%) rotate(135deg);
   }
+
   50% {
     border-radius: 50% 50% 50% 50%;
     transform: translate(-50%, -50%) rotate(180deg);
   }
+
   62.5% {
     border-radius: 5% 50% 50% 50%;
     transform: translate(-50%, -50%) rotate(225deg);
   }
+
   75% {
     border-radius: 5% 5% 50% 50%;
     transform: translate(-50%, -50%) rotate(270deg);
   }
+
   87.5% {
     border-radius: 5% 5% 5% 50%;
     transform: translate(-50%, -50%) rotate(315deg);
   }
+
   100% {
     border-radius: 5% 5% 5% 5%;
     transform: translate(-50%, -50%) rotate(360deg);
@@ -823,4 +860,21 @@ input[type='file'] {
   flex-direction: row;
   margin-bottom: 40px;
   justify-content: space-around;
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ec1515;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fa9108;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #fcee21;
 }
