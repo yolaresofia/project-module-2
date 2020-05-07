@@ -33,18 +33,6 @@
 </div>
 
 <script>
-<<<<<<< HEAD
-let deleteButtons = document.querySelectorAll('#ex-delete-btn')
-let routineSingle = document.querySelector('.allExerciseCards')
-deleteButtons.forEach(button => {
-button.addEventListener('click', e => {
-  let exerciseId = e.target.parentElement.parentElement.parentElement.dataset.exercise;
-  let routineId = routineSingle.dataset.routine;
-  e.target.parentElement.parentElement.parentElement.remove()
-  fetch()
-})
-})
-=======
   let deleteButtons = document.querySelectorAll('#ex-delete-btn')
   let routineSingle = document.querySelector('.allExerciseCards')
 
@@ -63,7 +51,6 @@ button.addEventListener('click', e => {
   })
 
   let selectedElements = document.querySelectorAll('.ex-move-button')
->>>>>>> 002fd2f5892dd7a1a5a7124fe8facf02b946f1d2
 
 
   selectedElements.forEach(selected => {
